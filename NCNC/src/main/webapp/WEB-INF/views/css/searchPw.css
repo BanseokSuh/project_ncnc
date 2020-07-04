@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+/* common.css
+ * 헤더(로고 검색창 장바구니)
+ * 햄버거 메뉴바 common.css
+ * 최근 본 상품 common.css
+ * 푸터 common.css
+ * 따라오는 하단 퀵메뉴
+ * 썸네일
+ */
+
+
+
+/** 화살표 위치 & 스타일 지정하기 */
+#page-header {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#page-header .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+
+
+/** 탭 영역 */
+.search-tab>ul {
+    font-size: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-tab>ul>li {
+    display: inline-block;
+    font-size: 12px;
+    height: 48px;
+    line-height: 50px;
+    width: 50%;
+    text-align: center;
+    border: 1px solid #cecece;
+}
+
+.search-tab>ul>li.on {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(95, 0, 119, 0.8);
+}
+
+
+
+/** 본문영역 */
+.tab-content h4 {
+    margin: 30px 0 15px 0;
+    text-align: center;
+}
+
+.lead-tab {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+
+/** 입력란 여백주기 */
+.form-group {
+    margin-bottom: 8px;
+    padding: 5px 15px 40px;
+}
+
+#user_pw_re {
+    margin-bottom: 20px;
+}
+
+
+
+/** 입력란 스타일 지정하기 */
+.form-control {
+    margin: 10px 0;
+    height: 35px;
+    font-size: 12px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+
+
+/** 이메일 */
+.email {
+    display: flow-root;
+}
+
+.email>input {
+    float: left;
+    width: 100%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+
+
+/** 인증번호 버튼 스타일 지정하기 */
+#random-btn a {
+    float: right;
+    width: 19.5%;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    font-size: 0.85em;
+    color: #222;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 1px;
+}
+
+#random-btn a:hover {
+    background: #5f0080;
+    color: #fff;
+    border: 1px solid #5f0080;
+}
+
+
+
+/** 확인 버튼 스타일 지정하기 */
+#search_pw {
+    padding: 5px 0 0;
+}
+
+.okbtn {
+    width: 100%;
+}
+

@@ -1,0 +1,50 @@
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 컨텐츠 부분 전체 내용 */
+#content {
+    padding: 15px 15px 30px 15px;
+    text-align: center;
+    border-top:1px solid rgba(0,0,0,0.05);
+}
+
+/* 취소신청이 완료되었습니다. */
+#cancel-success {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 이용해 주셔서 감사합니다 */
+#thanks {
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+/* 주문 목록 가기 */
+#list-link {
+    margin: 0 15px 300px 15px;
+    text-align: center;
+    background-color: #5f0080;
+}
+
+#list-link>a {
+    color: white;
+    display: block;
+    padding: 15px;
+}

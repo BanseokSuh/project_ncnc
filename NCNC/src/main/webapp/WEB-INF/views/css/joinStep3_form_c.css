@@ -1,0 +1,209 @@
+/********************* 상단영역 *********************/
+/* 상단 뒤로가기 버튼 */
+.top > .btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 상단 패딩 */
+.top {
+    padding: 15px 0;
+}
+
+/* 상단 약관동의 탭 비활성화 처리 */
+#tab-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+/********************* 중간영역 *********************/
+.contents {
+    padding: 0 20px 80px;
+    background-color: #eee;
+}
+
+/* 전체 입력 박스 */
+.form-group input {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #cecece;
+    font-size: 12px;
+    text-indent: 8px;
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    background-color: #fff;
+    outline: none;
+}
+
+/* 체크박스 내용 */
+.contents .contents_wrap label {
+    font-size: 13px;
+}
+
+/* 상단 체크박스 - '보호자 인증', '사람 인증' */
+.checkbox0,
+.checkbox1 {
+    display: block;
+    padding-bottom: 15px;
+}
+
+/* 보호자 인증 이메일 드롭다운 */
+.parential_email > .form-group {
+    margin-bottom: 0;
+}
+
+/* 인증번호 박스 - 발송, 확인 */
+button[id*=send_num] {
+    width: 50% !important;
+    float: left;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+/* 상단 체크박스 - 보호자 인증 */
+.checkbox0 {
+    padding-top: 2em;
+}
+
+/* 상단 체크박스2 - 사람 인증 */
+.checkbox1 {
+    margin-top: 3em;
+}
+
+/* 버튼 - 아이디 중복확인, 우편번호 찾기 */
+.button50 {
+    background-color: #5f0080;
+    color: white;
+    border-color: #5f0080;
+    font-size: 12px;
+    width: 50%;
+    height: 35px;
+    line-height: 35px;
+}
+
+/* 아이디, 보호자이메일 입력박스 */
+.form-group .input_id {
+    width: 50%;
+    float: left;
+}
+
+/* 이메일 입력박스 */
+.form-group .input_email {
+    width: 50%;
+    float: left;
+    margin-bottom:15px;
+}
+
+/* 이메일 @ */
+.form-group .at {
+    width: 10%;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    text-align: center;
+}
+
+/* 메일주소 드롭다운 */
+.form-group .email {
+    width: 22%;
+    margin-left: 1%;
+    float: left;
+    height: 35px;
+    margin-bottom: 15px;
+    border-radius: 0;
+    border: 1px solid #cecece;
+    font-size: 12px;
+}
+
+/* 이메일 직접입력 박스 */
+input[id*=selboxDirect] {
+    width: 22%;
+    float: left;
+}
+
+/* 우편변호 입력 */
+#input_add {
+    float: left;
+    width: 50%;
+}
+
+/* 주민번호 입력1 */
+.form-group #input_jumin1 {
+    width: 45%;
+    float: left;
+}
+
+/* 주민번호 dash */
+.form-group .dash {
+    width: 10%;
+    float: left;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* 주민번호 입력 박스2 */
+.form-group .input_jumin2 {
+    width: 26px;
+    float: left;
+    margin-bottom: 15px;
+}
+
+/* 주민번호 '*' */
+.form-group #input_jumin3 {
+    height: 35px;
+    line-height: 42px;
+    text-indent: 6px;
+}
+
+/* 하단 알림 메시지 */
+.bottom_check label {
+    font-size: 12px;
+}
+
+/* 하단 알림 보조 메시지 */
+.bottom_check p {
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+/* 체크박스 - 문자 */
+.bottom_check > .checkbox4 {
+    margin-left: 30px;
+}
+
+/********************* 하단영역 *********************/
+/* 하단 버튼 둘레 */
+.contents_wrap > .btn {
+    margin-top: 5em;
+    width: 100%;
+}
+
+/* 하단 각 버튼 */
+.contents_wrap .btn > a {
+    width: 50%;
+    float: left;
+}
+
+.blank{
+	display:flow-root;
+}
+

@@ -1,0 +1,67 @@
+/********************* 상단영역 *********************/
+/* 상단 패딩 */
+.top {
+    padding: 15px 0;
+}
+
+/*내부 패딩*/
+.inner {
+    padding: 0 20px 80px;
+}
+
+/*뒤로가기 버튼*/
+.top > .btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 상단 약관동의 탭 비활성화 처리 */
+#tab-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+/********************* 중간영역 *********************/
+/* 중간 약관동의 내용 전체 */
+.contents .contents_wrap .text {
+    padding: 80px 0 50px;
+    text-align: center;
+}
+
+/* 약관동의 머릿말 */
+.contents .contents_wrap .text .main_text {
+    font-size: 24px;
+    line-height: 1.4em;
+    margin-bottom: 1em;
+    color: #5f0080;
+    font-weight: bold;
+}
+
+/********************* 하단영역 *********************/
+/* 회원가입 버튼 둘레 */
+.contents .contents_wrap .btn {
+    font-size: 0;
+    width: 100%;
+}
+
+/* 회원가입 버튼 */
+.contents .contents_wrap .btn > a {
+    display: inline-block;
+    width: 50%;
+}
+
+/* 버튼 아래 알림글 */
+.contents .contents_wrap .notice {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #9c9c9c;
+}

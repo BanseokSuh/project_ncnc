@@ -1,0 +1,827 @@
+@charset "utf-8";
+h1, h2,h3,h4,h5,h6,p,ul,li,ol,div,img,input,select,button{
+    margin: 0; padding: 0;
+    text-decoration: none; 
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif !important; 
+    color: #222;
+}
+
+html,body{width:100%; height: 100%; font-family: 'Noto Sans KR', sans-serif !important;}
+
+h2{font-size: 20px; text-align: center; font-family: 'Noto Sans KR', sans-serif !important; font-weight: bold;}
+h3{ font-size: 18px; text-align: center; font-family: 'Noto Sans KR', sans-serif !important; font-weight: bold;}
+h4{ font-size: 16px; text-align: center; font-family: 'Noto Sans KR', sans-serif !important; font-weight: bold;}
+h1, .h1{ font-size: 0; }
+
+a,a:hover{ text-decoration: none; 
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif !important;  color: #222;}
+/**display:flow-root*/
+.dis-root{ display: flow-root; }
+
+/*float 없애는 클리어*/
+.clear{
+    content: '';
+    display: block;
+    clear: both;
+    float: none;
+}
+
+/*퀵메뉴 활성화 버튼*/
+.atvthis{
+    font-weight: bold;
+    color: rgba(95,0,119,0.7);
+    text-decoration: underline;
+}
+
+/* 활성화 버튼(오븐에 보여지기를 애초에 활성화 된 버튼) */
+/*a가 버튼이 될 경우임(호버와 같은 모양임) : 1:1문의에서 하단에 쓰임*/
+.okbtn{     
+    background: #5f0080;
+    border: 1px solid #5f0080;
+    color: #fff;
+    padding: 15px 0;
+    display: block;
+    font-size: 13px; 
+    font-weight: bold;
+    }
+.okbtn:hover{     
+    color: #fff;
+    display: block;
+    padding: 15px 0;
+    font-size: 13px;
+    }
+
+/*a가 버튼인데 활성화가 아닐경우(활성화 버튼과 같이 있을 경우) : 1:1문의에서 하단에 쓰임*/
+.offbtn1{
+     background: #fff;
+    border: 1px solid rgba(0,0,0,0.3);
+    color: #333;
+    padding: 15px 0;
+    display: block;
+    font-size: 13px; 
+    font-weight: bold;
+}
+
+.offbtn1:hover{     
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #5f0080;
+    padding: 15px 0;
+    display: block;
+    font-size: 13px; 
+    font-weight: bold;
+    }
+
+/*a가 버튼인데 호버일때 다름(활성화 버튼이 없을 경우) : ex 고객센터에서 쓰임!*/
+.offbtn2{
+     background: #fff;
+    border: 1px solid rgba(0,0,0,0.15);
+    color: #333;
+    padding: 15px 0;
+    display: block;
+    font-size: 13px; 
+    
+    
+}
+.offbtn2:hover{     
+    background: #5f0080;
+    border: 1px solid #5f0080;
+    color: #fff;
+    padding: 15px 0;
+    display: block;
+    font-size: 13px; 
+    font-weight: bold;
+    }
+
+/* 상품 더보기 버튼 속성 */
+.more-view{ text-align: center; }
+.more-view img{ width: 15px; margin-left: 10px;  }
+.more-btn{ color: rgba(95,0,119,0.8);
+    padding: 7px 20px;
+    font-size: 13px;
+    border: 1px solid rgba(95,0,119,0.8);
+    display: inline-block;
+    cursor: pointer;}
+    
+/*-----페이지에서 상단 탭 버튼-----*/
+.more-btn:hover, .more-btn:focus{ border: 1px solid rgba(95,0,119,0.5); color: rgba(95,0,119,0.5); }
+.more-view img{ opacity: 0.5; }
+
+#tab-ul>li{width: 50%; }
+#tab-ul .active>a{ background: rgba(0,0,0,0.05); color: rgba(95,0,119,0.8); }
+#tab-ul>li>a{display:block; width:100%; padding:15px; text-align:center; color: #222; box-sizing:border-box; border: 1px solid rgba(0,0,0,0.1); font-size: 13px;font-weight: bold; border-radius: 0;}
+#tab-ul>li>a:hover{ background: rgba(0,0,0,0.05); color:#5f0080; }
+.nav-tabs{ border: 0; }
+/*----------------------------------헤더 시작------------------------------*/
+
+/**로고. 검색창 장바구니 쪽 영역 여백 주기*/
+
+#header .logo-search-wrap {
+    padding: 10px 60px 10px 85px;
+    position: relative;
+    z-index: 4;
+    box-sizing: border-box;
+    -webkit-transition: .3s ease;
+}
+
+/**로고 영역 속성 --*/
+
+#header .logo {
+    position: absolute;
+    left: 25px;
+    display: inline-block;
+    width: 33px;
+    margin: 0;
+
+}
+
+#header .logo a {
+    display: block;
+}
+
+#header .logo img {
+    width: 100%;
+    vertical-align: top;
+}
+/**검색창 인풋 영역 속성 --*/
+
+#header .logo-search-wrap .inp-search {
+    position: relative;
+    margin-top: 5px;
+}
+
+#header .logo-search-wrap .inp-search input {
+    padding-right: 50px;
+}
+
+
+.inp-search > input {
+    line-height: 35px;
+    height: 33px;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 0;
+    -webkit-border-radius: 18px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+}
+
+
+/**검색창 인풋 영역 > 돋보기속성 --*/
+
+.inp-search .btn-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 46px;
+    height: 100%;
+    text-indent: -10000px;
+    border: 0px;
+    background-color: transparent;
+    border:0;
+    background:0;
+}
+
+.inp-search .btn-search:after {
+    content: '';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    margin-top: -10px;
+    display: inline-block;
+    background: url(../img/search.png) no-repeat;
+    background-size: 17px;
+    width: 17px;
+    height: 17px;
+    text-indent: -10000px;
+    opacity: 0.5;
+}
+
+/**검색창 인풋 영역 > 장바구니 속성 --*/
+
+
+#header .logo-search-wrap .btn-basket {
+    position: absolute;
+    background: url(../img/cart4.png) no-repeat;
+    background-size: 25px auto;
+
+    text-indent: -10000px;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    right: 13px;
+}
+
+/**검색창 인풋 영역 > 장바구니 속성 > 뱃지  --*/
+
+#header .logo-search-wrap .btn-basket .badge {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    color: #fff;
+    border-radius: 10px;
+    line-height: 16px;
+    text-align: center;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    background: #9B77C1;
+    text-indent: -0.5px;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline;
+}
+
+
+/*----------------------------------헤더 끝------------------------------*/
+
+
+/*  ------------------------------------- 햄버거 메뉴  css ---------------------------
+*/
+
+/*클릭 시 뒤에 배경 백그라운드 깔기*/
+
+#side-wrap.dark, #side-wrap2.dark {  
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    transition: 0.3s;
+    z-index: 99;
+}
+
+#sidenav {
+    height: 100%;
+    width: 80%;
+    top: 0;
+    right: -80%;
+    position: fixed;
+    transition: 0.4s;
+    z-index: 9999;
+   }
+
+
+/***/
+#ham-container {
+    background: #F7F2F8;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: .3s ease;
+    position: relative;
+}
+
+
+/*이름 있는 영역 > 첫번째 영역*/
+#ham-first {  background: #333;}
+#ham-name { padding: 14px; font-size: 17px; min-height: 25px; font-weight: 200;}
+#ham-name strong { color: #fff;}
+#ham-name span {  color: rgba(255, 255, 255, 0.7);}
+
+
+
+/*마이페이지. 찜, 쿠폰 있는 영역*/
+#ham-second-inner {  background: #333; display: flex; height: 84px; border-top: 1px solid rgba(255, 255, 255, .1);}
+
+#ham-second-inner .link-desc {  color: rgba(255, 255, 255, 0.7);
+}
+
+#ham-second-inner li {
+    position: relative;
+    flex: 1;
+    -webkit-flex: 1;
+    height: 100%;
+    text-align: center;
+}
+
+#ham-second-inner li a {
+    display: block;
+    height: 100%;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 53px 0 0 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+
+/* 마이페이지 아이콘  */
+#ham-second-inner li:first-child a:before {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    margin-left: -15px;
+    content: "";
+    display: block;
+    background: url(../img/user1.png) no-repeat;
+    background-size: 26px auto;
+    width: 26px;
+    height: 26px;
+}
+
+/* 찜한상품 아이콘  */
+#ham-second-inner li:nth-child(2) a:before {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    margin-left: -15px;
+    content: "";
+    display: block;
+    background: url(../img/jjim1.png) no-repeat;
+    background-size: 26px auto;
+    width: 26px;
+    height: 26px;
+}
+
+
+/* 쿠폰 아이콘  */
+#ham-second-inner li:nth-child(3) a:before {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    margin-left: -15px;
+    content: "";
+    display: block;
+    background: url(../img/coupon1.png) no-repeat;
+    background-size: 26px auto;
+    width: 26px;
+    height: 26px;
+}
+
+
+
+/* 쿠폰과 찜한상품 뱃지 */
+
+#ham-second-inner .badge {
+    position: absolute;
+    right: 35%;
+    top: 15%;
+    ;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    color: #fff;
+    border-radius: 10px;
+    line-height: 16px;
+    text-align: center;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    background: #9B77C1;
+    text-indent: -0.5px;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline;
+}
+
+/* 카테고리 리스트 */
+#ham-body li {  padding: 15px;  float: left;  width: 50%;}
+#ham-body li a {  color: #222;  font-size: 14px;}
+#ham-body ul {   display: flow-root;  padding-top: 25px;  background: #fff;}
+
+
+/** 뉴스. 중고거래 . 공지사항 부분 */
+#ham-footer-first .list-inline {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 15px 40px 15px;
+    margin: 0;
+    background: #fff;
+}
+
+#ham-footer-first .list-inline li {
+    float: left;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0;
+}
+
+#ham-footer-first .list-inline li:not(:first-child):before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    background: #888;
+    margin: -2px 10px 0 10px;
+    vertical-align: middle;
+}
+
+
+#ham-footer-first .list-inline li a {
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+/**로그인. 고갹센터 이벤트*/
+
+#ham-footer-second {  padding: 30px 15px;}
+#ham-footer-second .ham-footer-inner {  display: flow-root;}
+#ham-footer-second .ham-footer-inner li { float: left;  width: 49%;}
+#ham-footer-second .ham-footer-inner li:first-child {  margin-right: 2%;}
+#ham-footer-second .ham-footer-inner li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #222;
+    background: #fff;
+    border-radius: 50px;
+    font-size: 13px;
+    border: 1px solid #d9d9d9;
+}
+
+#ham-footer-second .ham-footer-inner li a:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+/* 사이드메뉴 버튼 닫기버튼  */
+#sidenav .close-sidenav {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    z-index: 1000;
+    background: url(../img/close2.png) no-repeat;
+    background-size: 23px;
+    width: 23px;
+    height: 23px;
+    text-indent: -10000px;
+    cursor: pointer;
+}
+
+/*  ------------------------ 햄버거 메뉴  css 끝 ----------------------------*/
+
+
+
+
+/*--------------------------최근 본 상품 시작----------------------------*/
+
+
+
+#sidenav-right {
+    height: 100%;
+    width: 80%;;
+    top: 0;
+    right: -80%;
+    background: #fff;
+    position: fixed;
+    transition: 0.3s;
+    z-index: 99;
+   }
+
+
+
+#newpro-header{  background: #fff; border-bottom: 1px solid #eee;}
+#newpro-header h3{ color: #111;  padding: 15px; text-align: left; }
+.latelyItem-ui-wrap{  padding: 10px; overflow: hidden; border-top: 1px solid #ddd; }
+
+
+.latelyItem-ui-wrap .chk-allSelect{ background: #fff; color: #111; padding: 10px 5px; float: left;}
+
+.latelyItem-ui-wrap .chk-allSelect>input{ margin-right: 10px !important; }
+input[type="checkbox"]{
+    position: relative;
+    height: 24px;
+    width: 24px;
+    margin: -2px 5px 0 0;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    background-color: #fff;
+    outline: none;  }
+
+input[type="checkbox"]:checked{ 
+    position: relative;
+    background: url(../img/checked.png) no-repeat center;
+    background-size: 15px 15px;
+    background-color: #5f0080;
+    -webkit-appearance: none;
+    border: 0;}
+
+.latelyItem-ui-wrap .btn-del{     
+    display: inline-block;
+    width: auto;
+    background: #fff;
+    border: 1px solid #00263e;
+    box-shadow: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    padding: 8px 20px;
+    font-weight: 300;
+    float: right;
+    margin-top: 4px; }
+
+
+
+#sidemenu-scroll-latelyItem{ height: 835px;  position: relative;  overflow: hidden; }
+
+.list-latelyItem{ overflow: hidden; background: #fff; }
+.list-latelyItem li{     
+    position: relative;
+    width: 33.3%;
+    padding-bottom: 33%;
+    float: left;
+    background: #fff;
+    border: 1px solid #eee;
+    border-width: 0 1px 1px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+ }
+
+.list-latelyItem li>a{ position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+.list-latelyItem li img{ width:100%; padding: 10px; }
+
+.list-latelyItem li .select>input[type='checkbox']{
+        margin: 10px; 
+}
+
+.list-latelyItem li .select{ position: absolute; display: none;  z-index: 2; }
+
+
+
+/* 사이드메뉴 버튼 닫기버튼  */
+#sidenav-right .close-sidenav {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    z-index: 1000;
+    background: url(../img/close.png) no-repeat;
+    background-size: 23px;
+    width: 23px;
+    height: 23px;
+    text-indent: -10000px;
+    cursor: pointer;
+}
+
+/*최근본 상품 휴지통 버튼*/
+#sidenav-right .del-pro {
+    position: absolute;
+    top: 13px;
+    right: 50px;
+    z-index: 1000;
+    background: url(../img/delete.png) no-repeat;
+    background-size: 23px;
+    width: 23px;
+    height: 23px;
+    text-indent: -10000px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*--------------------------최근 본 상품 끝----------------------------*/
+
+
+
+
+
+/*------------------------------메인 퀵메뉴------------------------------
+
+홈 탭메뉴,,, 나중에 합쳐야함 */
+
+#quick-menu{ padding-bottom: 10px; }
+#quick-menu ul{ display: flow-root; }
+#quick-menu ul li{width: 20%; font-family: 'Noto Sans KR', sans-serif;}
+
+#quick-menu ul li a{ display: block; padding: 7px 0; font-size: 13px;}
+#quick-menu ul li a:hover{ font-weight: bold; color: rgba(95,0,119,0.7); text-decoration: underline; }
+
+
+
+
+
+/* ---------------------------푸터 css 시작---------------------------------*/
+
+
+/*푸터 섹션*/
+#footer {
+    background-color: rgba(0,0,0,0.05);
+    margin: 50px 0;font-family: 'Nanum Gothic' !important;
+    font-size: 12px;
+}
+
+
+/*푸터 섹션 > 푸터 버튼 */
+
+#footer-button{ height: 45px; }
+#footer-button div{ width: 50%; }
+#footer-button div a {
+    background: #888;
+    color: #fff;
+    display: block;
+    padding:15px 0; 
+}
+#footer-button div a:hover {
+    background: #777;
+    color: #fff;
+    display: block;
+    padding:15px 0; 
+}
+
+#footer-button div a:nth-child(1){ border-right:1px solid rgba(255,255,255,0.3); }
+
+
+/* 푸터 섹션 > 푸터 이용약관 */
+
+#footer-explain {
+    padding: 10px 0; text-align: center; width:100%; border-bottom: 1px solid rgba(0,0,0,0.1);}
+#footer-explain ul{ width:80%; margin:0 auto; display: flow-root;}
+
+#footer-explain ul li{ width: 33.3%;}
+#footer-explain ul li a{ color: #333;  }
+/*#footer-explain li:before{    
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    background: rgba(0,0,0,0.3);
+    margin: 0 10px;}
+
+#footer-explain li:first-child:before{
+    display: none;
+}*/
+
+/* 푸터섹션 > 어드레스 */
+#footer address{ font-size: 11px; color: rgba(0,0,0,0.7); line-height: 1.7; padding: 20px 15px;}
+
+#copyright{ padding-bottom: 25px; margin-left: 10px; }
+#copyright p{ text-align: center; font-size: 0.95em; color: rgba(0,0,0,0.4);}
+
+
+
+/*탑버튼*/
+#top_wrap{
+    position: fixed;
+    bottom: 150px;
+    right: 10px;
+    z-index: 10;
+    background: #5f0080;
+    text-align: center;
+   
+}
+
+#top_wrap:hover{ background:rgba(95,0,128,0.5); }
+#top_wrap .glyphicon{ color:#fff; font-size:15px;}
+#top_wrap a{ display: block; width: 40px; height: 40px; padding: 7px 10px 10px; }
+#top_wrap a img{ width: 100%; }
+
+/*-----------------------------푸터 css 끝------------------------------------*/
+
+
+/* 따라오는 퀵메뉴 들 아이콘 속성들 */
+
+#fixed-q-menu {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#fixed-q-menu>ul>li {  width: 20%;  float: left;  line-height: 50px;}
+
+#fixed-q-menu>ul>li a { display: block; height: 50px;}
+
+#fixed-q-menu>ul>li img { width: 25px; opacity: 0.75; }
+#fixed-q-menu>ul>li img:hover{ opacity: 0.5; }
+
+h3{ font-weight: bold; }
+
+
+
+/*--------------------------------썸네일 부분 설정------------------------------*/
+
+
+
+/*메인베스트 썸네일*/
+.thum-list-comm div ul li{ width: 50%; padding: 15px 0; }
+
+.thum-list-comm div ul li img{ width: 100%; padding: 10px;}
+.thum-list-comm div ul li a{ display: block; color: #222;}
+
+/*메인베스트 영역 > 텍스트 영역 */
+.thum-list-comm .pro-text-div{  margin: 10px 0 0 10px; }
+
+
+/*메인베스트 영역 > 텍스트 속성들 */
+.thum-list-comm .pro-title{ margin-top: 5px; }
+.thum-list-comm .pro-price{ display: block; padding-top: 10px; font-weight: bold; }
+
+
+
+/* 베스트 넘버 */
+.thum-list-comm .best-pro-num{ 
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #555;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    top: 5px;
+    left: 15px;
+    font-size: 13px;
+}
+
+/*베스트 숫자 넣기*/
+.best-list {
+    counter-reset : numbering;
+    list-style-type:none;
+    display:flow-root;
+}
+ 
+.best-list .pull-left .best-pro-num:before{
+    counter-increment : numbering; 
+    content : counter(numbering);
+}
+
+
+/*이미지 섹션 스타일*/
+
+
+/*.thum-list-comm .img-area{ padding:10px 0; }*/
+.thum-list-comm div ul li img{ width:150px; height:150px;  }
+
+/*.thum-list-comm .img-area{height: 160px; display: block; position: relative;  box-sizing: border-box;}*/
+
+.img-area{
+	display:block;
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+/** 백그라운드로 만든 썸네일 (아이템 썸내일 용)*/
+.top-area{ position:relative; display:block; text-align:center; padding:10px;
+	height:130px;
+}
+
+/** 백그라운드로 만든 썸네일 (좌우 썸내일 용)*/
+.left-area{ position:relative; display:block; text-align:center; padding:10px;
+	height:110px;
+}
+
+/*텍스트 섹션 스타일*/
+.thum-list-comm .bottom-area{padding: 5px 15px 20px 15px; display: block;}
+.thum-list-comm .bottom-area .pro-brand{ display: block; font-size: 12px;}
+.thum-list-comm .bottom-area .pro-title{ display: block; font-size: 12px; height: 20px; }
+
+
+/*가격 부분*/
+
+.thum-list-comm .bottom-area .per{ font-size: 18px;
+    font-weight: bold;
+    color: rgba(95,0,119,0.7);
+    display: inline-block;
+    margin-right: 5px; 
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+.thum-list-comm .bottom-area .pre-price{display: block;
+    min-height: 16px;
+    text-decoration: line-through;
+    font-size: 11px;
+    color: #888;
+    height: 21px;
+    margin-bottom: -6px;
+font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+}
+
+
+.thum-list-comm .bottom-area .price{font-size: 16px; 
+    font-family: 'Ubuntu', sans-serif; 
+    display: inline-block;}
+
+.thum-list-comm .bottom-area .won{font-size: 11px;
+    font-weight: bold;
+    vertical-align: middle;}
+
+
+
+
+/*--------------------------------썸네일 부분 설정 끝------------------------------*/

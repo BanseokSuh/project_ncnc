@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ItemImageMapper">
+
+	<!-- Item 테이블 자체적으로 기능하는 구문 정리 -->
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="itemImageMap"
+		type="com.myncnc.ncnc.model.ItemImage">
+		<!-- Item 컬럼 -->
+		<result property="item_no" column="item_no" />
+		<result property="item_brand" column="item_brand" />
+		<result property="item_name" column="item_name" />
+		<result property="item_cpu" column="item_cpu" />
+		<result property="item_inch" column="item_inch" />
+		<result property="item_ram" column="item_ram" />
+		<result property="item_os" column="item_os" />
+		<result property="item_weight" column="item_weight" />
+		<result property="item_graphic" column="item_graphic" />
+		<result property="item_ssd" column="item_ssd" />
+		<result property="item_hdd" column="item_hdd" />
+		<result property="item_price" column="item_price" />
+		<result property="item_rel" column="item_rel" />
+		<result property="item_hit" column="item_hit" />
+		<result property="item_discount" column="item_discount" />
+		<result property="item_cnt" column="item_cnt" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+
+		<!-- Images 컬럼 -->
+		<result property="id" column="id" />
+		<result property="origin_name" column="origin_name" />
+		<result property="file_path" column="file_path" />
+		<result property="content_type" column="content_type" />
+		<result property="file_size" column="file_size" />
+		<result property="img_type" column="img_type" />
+		<!-- <result property="reg_date" column="reg_date" /> <result property="edit_date" 
+			column="edit_date" /> -->
+		<result property="parent_id" column="parent_id" />
+
+	</resultMap>
+
+	<!-- 노트북 > 대학생용 > 인기순 -->
+	<select id="selectUniHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND
+		g.img_type = 'A' AND
+		i.item_inch BETWEEN
+		13.0 AND 16.0 AND i.item_price
+		BETWEEN 0 AND
+		1100000
+		<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+	ORDER BY
+		i.item_hit DESC;
+	</select>
+
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- 노트북 > 비지니스 > 인기순 -->
+	<select id="selectBussinessHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND
+		g.img_type = 'A' AND
+		i.item_inch >15.0
+		AND i.item_price BETWEEN 1000000
+		AND 3000000 		
+		<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+	ORDER BY
+		i.item_hit DESC;
+	</select>
+
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- 노트북 > 초경량 > 인기순 -->
+	<select id="selectLightHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment, i.item_graphic
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND
+		g.img_type = 'A' AND
+		i.item_weight > 1.4
+				<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+		
+		ORDER BY i.item_hit DESC;
+	</select>
+
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- 노트북 > 게이밍 > 인기순 -->
+	<select id="selectGamingHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment, i.item_graphic
+		FROM item i, images g
+		WHERE 
+		(i.item_graphic LIKE CONCAT('%','GTX','%') OR i.item_graphic LIKE CONCAT('%','RTX','%') OR i.item_graphic LIKE CONCAT('%','5500M','%')) AND g.img_type = 'A' AND
+		i.item_no = g.parent_id
+
+		<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+		
+	ORDER BY
+		i.item_hit DESC;
+	</select>
+
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- 노트북 > 그래픽 > 인기순 -->
+	<select id="selectGraphicHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND
+		g.img_type = 'A' AND
+		i.item_ssd BETWEEN
+		0 AND 500 and i.item_ram = 16
+				<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+	ORDER BY
+		i.item_hit DESC;
+	</select>
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- 노트북 > 영상편집 > 인기순 -->
+	<select id="selectVideoHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_ram, i.item_os,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,i.item_weight,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND
+		g.img_type = 'A' AND
+		i.item_ram >= 16
+		AND i.item_ssd >500 		
+		<if test="item_brand != null">
+			AND i.item_brand LIKE CONCAT('%',#{item_brand},'%')
+		</if>
+		<if test="item_cpu != null">
+			AND i.item_cpu LIKE CONCAT('%',#{item_cpu},'%')
+		</if>
+		<if test="item_inch != 0">
+			AND i.item_inch LIKE CONCAT('%',#{item_inch},'%')
+		</if>
+			<if test="item_ram != 0">
+			AND i.item_ram LIKE CONCAT('%',#{item_ram},'%')
+		</if>		
+			<if test="item_os != null">
+			AND i.item_os LIKE CONCAT('%',#{item_os},'%')
+		</if>
+			<if test="item_weight != 0">
+			AND i.item_weight LIKE CONCAT('%',#{item_weight},'%')
+		</if>
+	ORDER BY
+		i.item_hit DESC;
+	</select>
+
+
+	<!-- ====================================================================================================================== -->
+
+	<!-- index > 베스트 > 인기순 -->
+	<select id="selectBestHot"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price, i.item_discount, g.origin_name, i.item_inch, i.item_hit, g.file_path,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS item_payment, g.origin_name
+		FROM item i, images g
+		WHERE i.item_no = g.parent_id AND g.img_type = 'A' 
+		ORDER BY i.item_hit
+		DESC
+		
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+		
+		
+	</select>
+
+	<!-- index > 베스트 > 최신순 -->
+	<select id="selectBestNew"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment, g.origin_name
+		FROM item i, images g
+		WHERE i.item_no =
+		g.parent_id AND g.img_type = 'A' ORDER BY i.item_rel
+		DESC;
+	</select>
+
+	<!-- index > 베스트 > 높은가격 -->
+	<select id="selectBestHigh"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment, g.origin_name
+		FROM item i, images g
+		WHERE i.item_no =
+		g.parent_id AND g.img_type = 'A' ORDER BY item_payment
+		DESC;
+	</select>
+
+	<!-- index > 베스트 > 게이밍 -->
+	<select id="selectBestLow"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_hit,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment, g.origin_name
+		FROM item i, images g
+		WHERE i.item_no =
+		g.parent_id AND g.img_type = 'A' ORDER BY item_payment;
+	</select>
+
+	<!-- ============================================================================== -->
+
+	<!-- 베스트 페이지 > 리뷰순 -->
+	<select id="selectBestReview"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, g.origin_name, i.item_brand, i.item_name,
+		i.item_discount,
+		i.item_price,TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1)
+		AS item_payment
+		FROM review AS r, item AS i, images AS
+		g where
+		r.item_no = i.item_no AND g.parent_id = i.item_no AND
+		g.img_type="A"
+		AND i.item_no = g.parent_id;
+
+
+	</select>
+
+	<!-- 베스트 페이지 > 판매순 -->
+	<select id="selectBestSell"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, g.origin_name , i.item_brand,
+		i.item_name,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS
+		item_payment,
+		i.item_discount, i.item_price, i.item_cnt FROM item AS i,
+		images AS g
+		WHERE
+		i.item_no = g.parent_id AND g.img_type="A" ORDER BY
+		i.item_cnt;
+	</select>
+
+	<!-- 검색 목록 조회 ( 인기순 ) -->
+		<select id="selectSearch"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_cpu, i.item_graphic,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS item_payment
+		FROM item i, images g
+		WHERE 
+		<if test="item_name != null and item_brand != null and item_graphic != null">
+			(i.item_brand LIKE CONCAT('%',#{item_brand},'%') OR i.item_name LIKE CONCAT('%',#{item_name},'%') OR i.item_graphic LIKE CONCAT('%',#{item_graphic},'%')) AND
+		</if>
+		i.item_no = g.parent_id AND g.img_type = 'A' 
+		ORDER BY i.item_hit DESC;
+	</select>
+	
+	<!-- 검색 목록 조회 ( 최신순 )-->
+		<select id="selectSearchNew"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_cpu, i.item_graphic,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS item_payment
+		FROM item i, images g
+		WHERE 
+		<if test="item_name != null and item_brand != null and item_graphic != null">
+			(i.item_brand LIKE CONCAT('%',#{item_brand},'%') OR i.item_name LIKE CONCAT('%',#{item_name},'%') OR i.item_graphic LIKE CONCAT('%',#{item_graphic},'%')) AND
+		</if>
+		i.item_no = g.parent_id AND g.img_type = 'A' 
+		ORDER BY i.item_rel DESC;
+	</select>
+	
+	<!-- 검색 목록 조회 ( 높은 가격 순 )-->
+		<select id="selectSearchHigh"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_cpu, i.item_graphic,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS item_payment
+		FROM item i, images g
+		WHERE 
+		<if test="item_name != null and item_brand != null and item_graphic != null">
+			(i.item_brand LIKE CONCAT('%',#{item_brand},'%') OR i.item_name LIKE CONCAT('%',#{item_name},'%') OR i.item_graphic LIKE CONCAT('%',#{item_graphic},'%')) AND
+		</if>
+		i.item_no = g.parent_id AND g.img_type = 'A' 
+		ORDER BY item_payment DESC;
+	</select>
+	
+	<!-- 검색 목록 조회 ( 낮은 가격 순 )-->
+		<select id="selectSearchLow"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_discount, g.origin_name, i.item_inch, i.item_cpu, i.item_graphic,
+		TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1) AS item_payment
+		FROM item i, images g
+		WHERE 
+		<if test="item_name != null and item_brand != null and item_graphic != null">
+			(i.item_brand LIKE CONCAT('%',#{item_brand},'%') OR i.item_name LIKE CONCAT('%',#{item_name},'%') OR i.item_graphic LIKE CONCAT('%',#{item_graphic},'%')) AND
+		</if>
+		i.item_no = g.parent_id AND g.img_type = 'A' 
+		ORDER BY item_payment;
+	</select>
+	
+	<!-- 검색 목록 결과 count -->
+	<select id="selectSearchCount"
+			parameterType="com.myncnc.ncnc.model.ItemImage"
+			resultType="int">
+		SELECT COUNT(*) FROM item
+		<where>
+			<if test="item_name != null and item_brand != null and item_graphic != null">
+				item_brand LIKE CONCAT('%',#{item_brand},'%') OR item_name LIKE CONCAT('%',#{item_name},'%') OR item_graphic LIKE CONCAT('%',#{item_graphic},'%')
+			</if>
+		</where>
+		
+		
+	</select>
+
+
+	<!-- ============================================================================== -->
+
+
+	<!-- 개별 상품 조회 -->
+	<select id="selectItemDetail"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_cpu, i.item_inch, i.item_ram, i.item_os, i.item_weight,
+		i.item_graphic, i.item_ssd, i.item_hdd, i.item_cnt,
+		i.item_discount,
+		g.origin_name,TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1)
+		AS item_payment
+		FROM item AS i, images AS g WHERE
+		i.item_no =
+		g.parent_id AND g.img_type = 'A' AND i.item_no=#{item_no};
+	</select>
+
+	<select id="selectItemCount"
+		parameterType="com.myncnc.ncnc.model.ItemImage" resultType="int">
+		SELECT
+		COUNT(*) FROM item;
+	</select>
+
+
+	<!-- 이미지를 위한.. -->
+	<select id="selectItemThumNail"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_cpu, i.item_inch, i.item_ram, i.item_os, i.item_weight,
+		i.item_graphic, i.item_ssd, i.item_hdd, i.item_cnt,
+		i.item_discount,
+		g.origin_name,TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1)
+		AS item_payment
+		FROM item AS i, images AS g WHERE
+		i.item_no =
+		g.parent_id AND g.img_type = 'B' AND i.item_no=#{item_no};
+	</select>
+	
+		<!-- 이미지를 위한.. -->
+	<select id="selectItemImageDetail"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT i.item_no, i.item_brand, i.item_name, i.item_price,
+		i.item_cpu, i.item_inch, i.item_ram, i.item_os, i.item_weight,
+		i.item_graphic, i.item_ssd, i.item_hdd, i.item_cnt,
+		i.item_discount,
+		g.origin_name,TRUNCATE(i.item_price-(i.item_price*i.item_discount/100),-1)
+		AS item_payment
+		FROM item AS i, images AS g WHERE
+		i.item_no =
+		g.parent_id AND g.img_type = 'C' AND i.item_no=#{item_no};
+	</select>
+
+
+	<!-- 이미지를 위한.. -->
+	<select id="selectCartItem"
+		parameterType="com.myncnc.ncnc.model.ItemImage"
+		resultMap="itemImageMap">
+		SELECT item_no, reg_date, edit_date, item_brand, item_name,
+		item_cpu, item_inch, item_ram, item_os, item_weight, item_graphic,
+		item_ssd, item_hdd, item_price, item_discount FROM item WHERE item_no
+		= #{item_no};
+	</select>
+	
+	
+	
+	<update id="updateItemHit"
+	parameterType="com.myncnc.ncnc.model.ItemImage">
+	UPDATE item
+	SET item_hit = item_hit + 1
+	WHERE item_no=#{item_no}; 
+	</update>
+
+
+</mapper>

@@ -1,0 +1,177 @@
+/********************* 상단영역 *********************/
+/* 뒤로가기 버튼 */
+.top>.btn-back {
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	display: inline-block;
+	background: url(../img/arrow-left.png) no-repeat;
+	background-size: 23px auto;
+	width: 23px;
+	height: 23px;
+	border: 0;
+	box-shadow: none;
+	text-indent: -1000px;
+}
+
+/* 상단 타이틀 위아래 패딩 */
+.top {
+	padding: 15px 0;
+}
+
+/* 상단 약관동의 탭 비활성화 처리 */
+#tab-btn {
+	pointer-events: none;
+	cursor: default;
+}
+
+/********************* 중간영역 *********************/
+/* 체크박스 */
+input[type="checkbox"] {
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	-webkit-appearance: none;
+	background-color: #fff;
+	outline: none;
+}
+
+/* 사람인증 체크박스 */
+.checkbox1 {
+	display: block;
+	padding-top: 2em;
+	padding-bottom: 15px;
+}
+
+/* 전체 내용 패딩 */
+.contents {
+	padding: 0 20px 80px;
+	background-color: #eee;
+}
+
+/* 전체 입력 박스 */
+.form-group input {
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #cecece;
+	font-size: 12px;
+	text-indent: 8px;
+}
+
+/* 아이디 입력 박스(50%) */
+.form-group .input_id {
+	width: 50%;
+	float: left;
+}
+
+/* 아이디, 우편번호 버튼 */
+.button50 {
+	background-color: #5f0080;
+	border-color: #5f0080;
+	color: white;
+	width: 50%;
+	height: 35px;
+	font-size: 12px;
+}
+
+/* 이메일 입력 박스(45%) */
+.form-group #input_email {
+	width: 100%;
+	float: left;
+}
+
+/* 이메일 직접입력 박스 */
+#selboxDirect {
+	width: 22%;
+	float: left;
+	margin-bottom: 15px;
+}
+
+/* 우편번호 입력 박스(50%) */
+#input_add {
+	float: left;
+	width: 50%;
+}
+
+/* 주민번호 입력 박스1 */
+.form-group #input_jumin1 {
+	width: 45%;
+	float: left;
+}
+
+/* 주민번호 dash */
+.form-group .dash {
+	width: 10%;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	text-align: center;
+}
+
+/* 주민번호 입력 박스2 */
+.form-group .input_jumin2 {
+	width: 26px;
+	float: left;
+	margin-bottom: 15px;
+}
+
+/* 주민번호 '*' */
+.form-group #input_jumin3 {
+	height: 35px;
+	line-height: 42px;
+	text-indent: 6px;
+}
+
+/* 알림 메시지 */
+.bottom_check label {
+	font-size: 12px;
+}
+
+/* 알림 보조 메시지 */
+.bottom_check p {
+	font-size: 10px;
+	color: gray;
+	margin-bottom: 5px;
+}
+
+/* 체크박스 - 문자 */
+.bottom_check>.checkbox4 {
+	margin-left: 30px;
+}
+
+/********************* 하단영역 *********************/
+/* 버튼 둘레 */
+.contents_wrap>.btn {
+	margin-top: 5em;
+	width: 100%;
+}
+
+/* 버튼 */
+.contents_wrap .btn>a {
+	width: 50%;
+	float: left;
+}
+
+.submitbtn {
+	width: 50%;
+	background: #5f0080;
+	border: 1px solid #5f0080;
+	color: #fff;
+	padding: 15px 0;
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.submitbtn:hover {
+	color: #fff;
+	display: block;
+	padding: 15px 0;
+	font-size: 13px;
+}
+
+.email {
+	display: flow-root;
+}

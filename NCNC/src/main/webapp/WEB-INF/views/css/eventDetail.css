@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/*이벤트 페이지 헤더 부분*/
+#eve-detail-header{padding: 15px 0; position: relative;}
+#eve-detail-header .btn-back {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        display: inline-block;
+        background: url(../img/arrow-left.png) no-repeat;
+        background-size: 23px auto;
+        width: 23px;
+        height: 23px;
+        border: 0;
+        box-shadow: none;
+        text-indent: -1000px;
+    }
+
+
+
+
+
+
+#eve-detail-title .eve-title{ font-size:14px;  padding: 20px 15px; background: rgba(95,0,119,0.05); font-weight: bold}
+#eve-detail-title .cust-event-time{ float:right; padding:5px 15px; border:1px solid rgba(95,0,119,0.8);
+ color:  rgba(95,0,119,0.8); font-weight:bold; font-size: 13px; background: #fff; border-radius:3px;}
+
+#eve-detail-body{ padding: 15px; }
+
+.eve-date, .pull-left{ font-size: 12px; color: #777; }
+.eve-date{ padding-right: 10px; }
+/*이벤트 본문 영역*/
+#eve-detail-text{ text-align: center; padding: 30px 0;}
+
+#eve-detail-img img{ width: 100%; }
+#eve-detail-text table{  margin: 0 auto; margin-top: 30px; text-align: right;  color:rgba(59,0,119,0.8);}
+#eve-detail-text table td{  text-align: left; width: 60%;}
+#eve-detail-text table th{  text-align: right; width: 40%; padding-right: 10px;}
+
+
+/* 댓글 입력창 */
+#eve-detail-reply-write{ background: rgba(0,0,0,0.05); padding: 40px 15px; display:  flow-root; }
+#eve-detail-reply-write .textarea-btn-wrap{ margin: 15px 0 20px 0; display: flow-root; }
+
+#eve-detail-reply-write textarea{ width: 80%; height: 50px; border: 0; background: rgba(255,255,255,0.7); font-size: 12px; float: left; padding: 10px;}
+
+#eve-detail-reply-write #reply-result{ width: 100%; padding: 7px 0; border:0; background: #5f0080; color: #fff;  font-size: 13px; display: inline; }
+
+#eve-detail-reply-write .btn-wrap{ float:right; width: 18% ;  margin: 10px 0;}
+
+
+
+
+/*댓글 리스트 영역*/
+#reply-list-all{ color: #777; padding: 10px 15px; border-bottom: 1px solid rgba(0,0,0,0.1);  }
+#reply-list-all .reply-list-all-num{ color: rgba(95,0,119,0.5); font-weight: bold;}
+
+/* 댓글 리스트 각각 영역 */
+#eve-detail-reply-list li{ border-bottom: 1px solid rgba(0,0,0,0.1); padding: 20px 15px; display: flow-root; position: relative;}
+#eve-detail-reply-list .reply-area{ width: 90%;  }
+#eve-detail-reply-list .eve-reply-userid{ font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;}
+#eve-detail-reply-list .eve-reply-txt{ font-size: 13px; display: block; margin-bottom: 10px;}
+#eve-detail-reply-list .eve-reply-date{ font-size: 11px; color: #999; }
+
+#eve-detail-reply-list .btn-area{ width: 10%; text-align: right; }
+#eve-detail-reply-list .eve-reply-menu-btn img{ width: 15px;  opacity: 0.3; display: inline-block; float: right; cursor: pointer;}
+
+
+
+
+
+
+
+.eve-reply-menu{ position: absolute; width: 80px; right: 35px; text-align: center; }
+.eve-reply-menu span{ display: block; font-size: 12px; padding: 7px 0; background: #eee; }
+.eve-reply-menu span:first-child{ border-bottom: 1px solid rgba(0,0,0,0.1); }
+.eve-reply-menu span:hover{ background: rgb(95,0,119); color: #fff; cursor: pointer;}
+
+
+
+
+
+
+

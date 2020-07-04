@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+body{font-family: 'Roboto', sans-serif;
+font-family: 'Noto Sans KR', sans-serif; }
+h2{ font-weight: bold; }
+
+#pE-header{padding: 15px 0;  position: relative;}
+#pE-header .btn-back {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        display: inline-block;
+        background: url(../img/arrow-left.png) no-repeat;
+        background-size: 23px auto;
+        width: 23px;
+        height: 23px;
+        border: 0;
+        box-shadow: none;
+        text-indent: -1000px;
+    }
+
+
+
+
+
+/*각 리스트 a에 블럭으로 바꾸고 속성주기*/
+#p-open-event-list>ul>li>a, #p-close-event-list>ul>li>a{ display:block;  padding:30px 15px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+/*각 리스트의 이미지*/
+#p-open-event-list img, #p-close-event-list img
+{ width:100%; /*border:1px solid #000;*/ margin-top:15px;}
+
+/* 각 리스트 안에 배열  */
+.title-area{ width: 80%; padding:10px;}
+.date-area{ width: 20%;
+    padding-top: 10px;
+    text-align: right;
+}
+
+
+/*각 리스트 안에 제목글*/
+#p-open-event-list .title, #p-close-event-list .title{ font-size:13px; color:#222; position: relative;}
+
+#p-open-event-list .title:before, #p-close-event-list .title:before{ display:inline-block; background:#5f0080 ; width:5px; height:5px;  }
+
+#p-open-event-list .title:before, #p-close-event-list .title:before{  
+    content: '';
+    display: inline;
+    width: 5px;
+    height: 5px;
+    background: rgba(95,0,119,0.6);
+    margin-right: 10px;
+    position: absolute;
+    left: -11px;
+    top: 5px;}
+
+
+/*디데이 스타일 설정*/
+.cust-event-time{ padding:3px 15px; font-size: 11px;}
+#p-open-event-list .cust-event-time{ border:1px solid #5f0080;  background: #5f0080; color:#fff;  }
+#p-close-event-list .cust-event-time{ background: rgba(0,0,0,0.5); color: #fff;  }
+
+
+/*각 리스트안에 서브글*/
+#p-open-event-list .sub-txt, #p-close-event-list .sub-txt{ font-size:11px; color:rgba(0,0,0,0.5); padding-top: 5px; line-height: 1.5; }
+
+
+
+
+/* 종료된 이벤트 모달창 속성변경 */
+
+.swal2-popup .swal2-styled{ border-radius: 0 !important; padding: 15px 50px !important; font-size: 13px !important; background:#5f0080 !important;   }
+
+
+.swal2-icon.swal2-info{ color: rgba(59,0,119,0.8) !important; border-color:rgba(59,0,119,0.4) !important; font-size: 40px !important; line-height: 60px !important;}
+
+.swal2-icon{ width:60px !important; height:60px !important; margin: 0px auto 20px !important; }
+
+.swal2-popup .swal2-title{ font-size: 20px !important;  }
+.swal2-popup .swal2-content{ font-size: 16px !important;  }
+
+
+

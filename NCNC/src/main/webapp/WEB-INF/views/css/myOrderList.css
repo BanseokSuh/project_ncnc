@@ -1,0 +1,224 @@
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/*검색창 돋보기*/
+#search-bar {
+    position: relative;
+}
+
+#search-bar a {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    text-indent: -10000px;
+    background: url(../img/search.png)no-repeat;
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    opacity: 0.3;
+}
+
+#search-bar a:hover {
+    opacity: 0.5;
+}
+
+/* 주문상세 내의 검색 창 */
+#order-search-bar {
+    position: relative;
+    padding: 0 15px;
+}
+
+#order-search-bar input {
+    width: 100%;
+    height:35px;
+}
+
+#search-bar {
+    padding: 0 15px;
+}
+
+#search-bar>input {
+    width: 100%;
+    height: 30px;
+}
+
+/* 검색창 돋보기 위치 조절 */
+#order-search-bar a {
+    position: absolute;
+    right: 20px;
+    top: 9px;
+    text-indent: -10000px;
+    background: url(../img/search.png)no-repeat;
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    opacity: 0.3;
+}
+
+#order-search-bar a:hover {
+    opacity: 0.5;
+}
+
+/* 주문내역 기간, 주문 상태 드롭다운 */
+#dropdown-container {
+    display: flow-root;
+    padding: 15px;
+
+}
+
+#dropdown1,
+#dropdown2 {
+    float: left;
+    width: 49%;
+   
+}
+
+#dropdown1 select,
+#dropdown2 select{
+	 border-radius: 0px !important;
+	 font-size:12px;
+	 box-shadow : none;
+}
+
+#dropdown2 {
+    margin-left: 2%;
+}
+
+/* 컨텐츠 부분 */
+#myorder-content {
+    margin-top: 15px;
+}
+
+/* 주문 내역 타이틀 */
+.myorder-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.myorder-detail {
+    display: flow-root;
+}
+
+.myorder-day {
+    float: left;
+    width: 50%;
+    text-align: left;
+    font-size:13px;
+}
+
+/* 주문 상세 페이지 이동 링크 */
+.detail-link {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+.detail-link a {
+    color: #5f0080;
+    font-size:12px;
+}
+
+
+.detail-link img {
+    width: 10px;
+    margin-left:5px;
+}
+
+/* 상품 리스트 */
+#myorder-list{
+	display:flow-root;
+}
+#myorder-list>ul {
+    padding: 10px 0;
+}
+
+.myorder-detail .myorder-date{ 
+	background:red;
+	display:flow-root;
+	padding: 15px; 
+	background:rgba(0,0,0,0.05);}
+
+#myorder-list>ul>li {
+    padding: 15px;
+}
+
+/* 상품 썸네일 */
+.list-thumbnail {
+    position: relative;
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* 상품 상세 내용 */
+.list-desc {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+
+.list-brand{ font-size:13px; }
+
+
+/* 상품 상세 스펙 */
+.list-product-desc {
+    padding: 5px 0;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.list-thumbnail>img {
+    width: 100px;
+}
+
+.list-thumbnail>input[type="checkbox"], .list-thumbnail>input[type="checkbox"]:checked{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:20px;
+    height:20px;
+}
+
+
+.link-button-parent {
+    padding: 0 0 10px 0;
+    display: flow-root;
+}
+
+.link-button-parent a {
+    border: 1px solid #5f0080;
+    padding: 5px 10px;
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 1px;
+    font-size: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #5f0080;
+}
+
+/* 상품 가격 */
+.list-product-price {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Ubuntu', sans-serif !important;
+}

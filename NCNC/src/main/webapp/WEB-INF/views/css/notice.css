@@ -1,0 +1,68 @@
+/* 공지사항 왼쪽 정렬 타이틀 */
+h3 {
+    text-align: left !important;
+}
+
+/* 헤더 */
+#faq-header {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* 뒤로가기 버튼 */
+#faq-header .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 공지사항 메뉴 글자 크기 */
+div#faq-subtitle.tab-content a {
+    font-size: 13px;
+}
+
+/* 공지사항 메뉴 영역*/
+#faq-subtitle h3 {
+    padding: 20px 15px;
+    text-align: left !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#faq-subtitle li:first-child h3 {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 공지사항 메뉴영역 화살표 */
+#faq-subtitle h3 a:after {
+    content: '';
+    position: absolute;
+    right: 18px;
+    display: inline-block;
+    background: url(../img/arrow-down.png) no-repeat;
+    background-size: 17px;
+    width: 17px;
+    height: 17px;
+}
+
+/* 공지사항 내용 */
+div#faq-subtitle.tab-content li ul li {
+    color: #555;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 30px 15px;
+    line-height: 1.7;
+    font-size: 12px;
+}
+
+/* active 클래스 외에 것은 보이지 않게 하기 */
+#faq-subtitle ul ul {
+    display: none;
+}

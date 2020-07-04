@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DocumentImageMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="documentImageMap"
+		type="com.myncnc.ncnc.model.DocumentImage">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="doc_no" column="doc_no" />
+		<result property="doc_title" column="doc_title" />
+		<result property="doc_contents" column="doc_contents" />
+		<result property="doc_type" column="doc_type" />
+		<result property="doc_hit" column="doc_hit" />
+		<result property="doc_day" column="doc_day" />
+		<result property="doc_end" column="doc_end" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		
+		<!-- Images 컬럼 -->
+		<result property="id" column="id" />
+		<result property="origin_name" column="origin_name" />
+		<result property="file_path" column="file_path" />
+		<result property="content_type" column="content_type" />
+		<result property="file_size" column="file_size" />
+		<result property="img_type" column="img_type" />
+		<result property="parent_id" column="parent_id" />
+		
+	</resultMap>
+	
+	<!-- qmenu > qNews 전체 목록 조회-->
+	<select id="selectNewsList"
+		parameterType="com.myncnc.ncnc.model.DocumentImage"
+		resultMap="documentImageMap">
+		SELECT d.doc_no, d.doc_title, d.doc_contents, d.doc_type, d.doc_hit, d.doc_day, d.doc_end, d.reg_date, d.edit_date, g.origin_name 
+		FROM document AS d, images AS g
+		WHERE d.doc_type='A' AND d.doc_no = g.parent_id AND g.img_type="D"
+		ORDER BY d.doc_no DESC;
+	</select>
+	
+	<!-- newsDetail 상세 페이지 조회-->
+	<select id="selectNewsItem"
+		parameterType="com.myncnc.ncnc.model.DocumentImage"
+		resultMap="documentImageMap">
+		SELECT d.doc_no, d.doc_title, d.doc_contents, d.doc_type, d.doc_hit, d.doc_day, d.doc_end, d.reg_date, d.edit_date, g.origin_name 
+		FROM document AS d, images AS g 
+		WHERE d.doc_no=#{doc_no} AND d.doc_no = g.parent_id AND g.img_type="D";
+	</select>
+ 
+	<!-- Document 조회수 증가-->
+	<update id="updateDocHit"
+		parameterType="com.myncnc.ncnc.model.DocumentImage">
+		UPDATE document 
+			SET doc_hit = doc_hit + 1
+        WHERE doc_no=#{doc_no};
+    </update>
+
+	<!-- qmenu > qEvent(진행중) 전체 목록 조회-->
+	<select id="selectEventList"
+		parameterType="com.myncnc.ncnc.model.DocumentImage"
+		resultMap="documentImageMap">
+		<![CDATA[
+		SELECT d.doc_no, d.doc_title, d.doc_contents, d.doc_type, d.doc_hit, d.doc_day, d.doc_end, d.reg_date, d.edit_date, g.origin_name 
+		FROM document AS d, images AS g
+		WHERE d.doc_type='B' AND g.img_type = 'E' AND d.doc_no = g.parent_id AND d.doc_day >= date_add(now(), interval +1 second)
+		ORDER BY d.doc_no DESC;
+		]]>
+	</select>
+	
+	<!-- qmenu > qEvent(종료) 전체 목록 조회-->
+	<select id="selectEventendList"
+		parameterType="com.myncnc.ncnc.model.DocumentImage"
+		resultMap="documentImageMap">
+		<![CDATA[
+		SELECT d.doc_no, d.doc_title, d.doc_contents, d.doc_type, d.doc_hit, d.doc_day, d.doc_end, d.reg_date, d.edit_date, g.origin_name 
+		FROM document AS d, images AS g 
+		WHERE d.doc_type='B' AND g.img_type = 'E' AND d.doc_no = g.parent_id AND d.doc_day <= date_add(now(), interval +1 second)
+		ORDER BY d.doc_no DESC;
+		]]>
+	</select>	
+	
+	<!-- eventDetail 상세 페이지 조회-->
+	<select id="selectEventItem"
+		parameterType="com.myncnc.ncnc.model.DocumentImage"
+		resultMap="documentImageMap">
+		SELECT d.doc_no, d.doc_title, d.doc_contents, d.doc_type, d.doc_hit, d.doc_day, d.doc_end, d.reg_date, d.edit_date, g.origin_name 
+		FROM document AS d, images AS g
+		WHERE d.doc_no=#{doc_no} AND d.doc_no = g.parent_id AND g.img_type="E";
+	</select>
+
+</mapper>

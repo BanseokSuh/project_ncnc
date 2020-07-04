@@ -1,0 +1,343 @@
+@charset "utf-8";
+
+/* common.css
+ * 헤더(로고 검색창 장바구니)
+ * 햄버거 메뉴바 common.css
+ * 최근 본 상품 common.css
+ * 푸터 common.css
+ * 따라오는 하단 퀵메뉴
+ * 썸네일
+ */
+
+
+
+/** 화살표 위치 & 스타일 지정하기 */
+#page-header {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#page-header .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+
+
+/** 입력란 스타일 지정하기 */
+.form-control {
+    font-size: 12px;
+    border-radius: 0px;
+    box-shadow: none;
+    margin-bottom: 10px;
+}
+
+.contents_wrap {
+    padding: 40px 15px 20px 15px;
+    background-color: rgba(0, 0, 0, 0.03);
+
+}
+
+
+
+/** 아이디 */
+.id {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.id>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.id>input {
+    float: left;
+    width: 55%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+}
+
+.id>a {
+    float: left;
+    width: 25%;
+    text-align: right;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #9770BE;
+}
+
+.id>a:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/** 이름 */
+.name {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.name>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.name>input {
+    float: left;
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+}
+
+
+
+/** 생년월일 */
+.birthday {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.birthday>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.birthday>input {
+    float: left;
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+}
+
+
+
+/** 성별 */
+.gender {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.gender>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.gender>input {
+    float: left;
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+}
+
+
+
+/** 이메일 */
+.email {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.email>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.email>input {
+    float: left;
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#email-ch-btn a {
+    float: right;
+    width: 19.5%;
+    height: 35px;
+    display: block;
+    font-size: 0.85em;
+    color: #222;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 1px;
+}
+
+#email-ch-btn a:hover {
+    background: #5f0080;
+    color: #fff;
+    border: 1px solid #5f0080;
+}
+
+
+
+/** 연락처 */
+.mobile {
+    display: flow-root;
+    line-height: 35px;
+}
+
+.mobile>label {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.mobile>input {
+    float: left;
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+
+/** 주소 */
+.form-group {
+    display: flow-root;
+    line-height: 35px;
+    margin-bottom: 10px;
+}
+
+.addr {
+    float: left;
+    width: 20%;
+
+}
+
+.addr_info {
+    float: left;
+    width: 80%;
+}
+
+.user_addr_zip {
+    display: flow-root;
+}
+
+#user_zip {
+    float: left;
+    width: 70%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#zip-btn a {
+    float: right;
+    width: 29.5%;
+    height: 35px;
+    display: block;
+    font-size: 0.75em;
+    color: #222;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 1px;
+}
+
+#zip-btn a:hover {
+    background: #5f0080;
+    color: #fff;
+    border: 1px solid #5f0080;
+}
+
+#user_addr {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#user_detail_addr {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.bottom_check>p {
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+/** 회원탈퇴 */
+#mem_out h4 {
+    text-align: left !important;
+    padding: 8px 0 !important;
+    font-size: 14px !important;
+    
+}
+
+
+#mem_out>p {
+    padding: 0 0 2px 0;
+    font-size: 12px !important;
+}
+
+#mem_out a {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #9770BE;
+}
+
+#mem_out a:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/** 취소&확인 버튼 스타일 지정하기 */
+.btn-wrap-flex {
+    margin: 30px 0 50px;
+    display: flow-root;
+}
+
+.btn-wrap-flex a {
+    display: block;
+    padding: 15px 0;
+}
+
+.btn-wrap-flex div:first-child a {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #222;
+}
+
+.btn-wrap-flex div:last-child a {
+    background: #5f0080;
+    border: 1px solid #5f0080;
+    color: #fff;
+}
+
+.btn-wrap-flex div {
+    padding: 0;
+}
+
+.btn-wrap-flex .okbtn {
+	width: 100%;
+}
+
+
+
+/** 푸터 스타일 지정하기 */
+#footer {
+    margin: 0;
+}

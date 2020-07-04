@@ -1,0 +1,67 @@
+/********************* 상단영역 *********************/
+.top{
+    padding: 15px 0;
+}
+
+ul,
+.inner {
+    padding: 0 20px 80px;
+}
+
+.top>.btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/********************* 중간영역 *********************/
+/* 내용 부분 로고 덮개 */
+.contents .contents_wrap .input_img {
+    text-align: center;
+    margin-top: 40px;
+    
+}
+
+/* 내용 부분 로고 */
+.contents .contents_wrap img {
+	width: 45px;
+}
+
+/* 안내 텍스트 덮개 */
+.contents .contents_wrap .text {
+    padding: 20px 0 50px;
+    text-align: center;
+}
+
+/* 안내 텍스트 */
+.contents .contents_wrap .text .main_text {
+    font-size: 24px;
+    margin-bottom: 0.8em;
+    color: #5f0080;
+}
+
+/* 하단 보조 안내 텍스트 */
+.contents .contents_wrap .text .sub_text {
+    font-size: 14px;
+    color: #9c9c9c;
+}
+
+/********************* 하단영역 *********************/
+/*버튼*/
+.contents .contents_wrap .btn {
+	width: 100%;
+}
+
+.contents .contents_wrap .btn>a {
+    display: inline-block;
+    width: 50%;
+}
+

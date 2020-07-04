@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="OrdersMapper">
+	<resultMap type="com.myncnc.ncnc.model.Orders" id="ordersMap">
+		<result property="ord_no" column= "ord_no"/>
+    	<result property="ord_memo" column= "ord_memo"/>
+    	<result property="ord_qty" column= "ord_qty"/>
+    	<result property="ord_bank" column= "ord_bank"/>
+    	<result property="ord_payer" column= "ord_payer"/>
+    	<result property="ord_status" column= "ord_status"/>
+    	<result property="ord_delivery" column= "ord_delivery"/>
+    	<result property="reg_date" column= "reg_date"/>
+    	<result property="edit_date" column= "edit_date"/>
+   		<result property="item_brand" column= "item_brand"/>
+   		<result property="item_name" column= "item_name"/>
+    	<result property="item_cpu" column= "item_cpu"/>
+   		<result property="item_inch" column= "item_inch"/>
+   		<result property="item_ram" column= "item_ram"/>
+   		<result property="item_os" column= "item_os"/>
+   		<result property="item_weight" column= "item_weight"/>
+   		<result property="item_graphic" column= "item_graphic"/>
+   		<result property="item_ssd" column= "item_ssd"/>
+    	<result property="item_hdd" column= "item_hdd"/>
+   		<result property="item_price" column= "item_price"/>
+    	<result property="item_discount" column= "item_discount"/>
+    	<result property="mem_postcode" column= "mem_postcode"/>
+    	<result property="mem_addr1" column= "mem_addr1"/>
+   		<result property="mem_addr2" column= "mem_addr2"/>
+   		<result property="mem_receiver" column= "mem_receiver"/>
+   		<result property="mem_tel" column= "mem_tel"/>
+   		<result property="mem_no" column= "mem_no"/>
+   		<result property="opt_no" column= "opt_no"/>
+	</resultMap>
+
+	<!-- 데이터 저장을 위한 select 기능 정의
+		=> 주문완료 중 = ajax Controller에서 리스트를 한번 호출해야함 그때 필요한 select 
+		주석입니다-->
+	<select id="selectOrders" parameterType="com.myncnc.ncnc.model.Orders" resultMap="ordersMap">
+		SELECT ord_memo, ord_qty, ord_bank, ord_payer,
+		ord_status, ord_delivery, o.reg_date, o.edit_date,
+		item_brand, item_name, item_cpu, item_inch, item_ram, item_os, item_weight, 
+		item_graphic, item_ssd, item_hdd, item_price, item_discount, o.mem_no, del_nick,
+		del_postcode, del_addr1, del_addr2, del_receiver, del_tel
+		FROM orders o
+        INNER JOIN member m ON o.mem_no = m.mem_no
+        WHERE ord_no=#{ord_no};
+	</select>
+
+
+	<!-- 데이터 저장을 위한 기능 정의 
+		=> 주문완료 페이지 = 오더에 저장되는 페이지(orderResult)
+	-->
+	<insert id="insertOrders" parameterType="com.myncnc.ncnc.model.Orders" useGeneratedKeys="true" keyProperty="ord_no">
+		<!--둘이셋트다. use로 PK받아서 keyProperty 로 ord_no에 담아준다. -->
+		INSERT INTO orders (ord_memo, ord_qty, ord_bank, ord_payer,
+		ord_status, ord_delivery,mem_no,opt_no, reg_date, edit_date,
+		item_brand, item_name, item_cpu, item_inch, item_ram, item_os, item_weight, 
+		item_graphic, item_ssd, item_hdd, item_price, item_discount, 
+		mem_postcode, mem_addr1, mem_addr2,mem_receiver, mem_tel)
+		 VALUES (#{ord_memo},#{ord_qty},#{ord_bank},#{ord_payer},#{ord_status}
+		 ,#{ord_delivery}, #{mem_no}, #{opt_no}, now(), now(), #{item_brand},#{item_name},#{item_cpu},#{item_inch}
+		 ,#{item_ram},#{item_os},#{item_weight},#{item_graphic}, #{item_ssd}, #{item_hdd}
+		 ,#{item_price}, #{item_discount},#{mem_postcode}, 
+		 #{mem_addr1}, #{mem_addr2}, #{mem_receiver}, #{mem_tel});
+	</insert>
+
+
+
+	<!-- 데이터 갱신을 위한 기능 정의 
+		=> 주문 취소 페이지(상태변경)(myOrderCancel)
+	-->
+	<update id="updateOrders"
+		parameterType="com.myncnc.ncnc.model.Orders">
+		UPDATE orders SET ord_status='F' WHERE ord_no=#{ord_no};
+	</update>
+
+
+	<!-- 회원탈퇴를 위한 null값 업데이트  -->
+	<update id="updateOrdersMemNull"
+		parameterType="com.myncnc.ncnc.model.Orders">
+		UPDATE orders SET mem_no=null WHERE ord_no=#{ord_no}
+	</update>
+
+
+
+</mapper>

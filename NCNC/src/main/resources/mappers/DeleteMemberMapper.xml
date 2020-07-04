@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DeleteMemberMapper">
+	<!-- 멤버를 참조하고 있는 모든 테이블의 mem_no를 null로 업데이트 -->
+	<!-- <update id="unsetMember" parameterType="com.myncnc.ncnc.model.Member"> 
+		UPDATE resell AS r, review AS re, cart AS c, coupon AS cou, points AS p, 
+		qna AS q, orders as o, member AS m SET r.mem_no = null, re.mem_no = null, 
+		c.mem_no = null, cou.mem_no = null, p.mem_no = null, q.mem_no = null, o.mem_no 
+		= null WHERE r.mem_no = m.mem_no OR re.mem_no = m.mem_no OR c.mem_no = m.mem_no 
+		OR cou.mem_no = m.mem_no OR p.mem_no = m.mem_no OR q.mem_no = m.mem_no OR 
+		o.mem_no = m.mem_no AND m.mem_no = #{mem_no}; </update> -->
+
+	<update id="unsetResell"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE resell SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetReview"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE review SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetCart"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE cart SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetCoupon"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE coupon SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetPoints"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE points SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetQna"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE qna SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetOrders"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE orders SET mem_no = null WHERE mem_no = #{mem_no}
+	</update>
+
+	<update id="unsetComment"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE comment SET mem_no = null WHERE mem_no =
+		#{mem_no}
+	</update>
+
+	<update id="unsetDelivery"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE delivery SET mem_no = null WHERE mem_no =
+		#{mem_no}
+	</update>
+
+</mapper>

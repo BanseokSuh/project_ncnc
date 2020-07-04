@@ -1,0 +1,289 @@
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/*검색창 돋보기*/
+#search-bar {
+    position: relative;
+}
+
+#search-bar a {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    text-indent: -10000px;
+    background: url(../img/search.png)no-repeat;
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    opacity: 0.3;
+}
+
+#search-bar a:hover {
+    opacity: 0.5;
+}
+
+
+
+/*상단 탭버튼 부트스트랩 있던 클래스 변경함*/
+.nav-tabs {
+    border: 0;
+}
+
+.nav-tabs>li>a {
+    border-radius: 0;
+}
+
+#tab-ul .active a {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(95, 0, 119, 0.8);
+    font-weight: bold;
+}
+
+
+/*상단 탭 버튼*/
+#tab-ul li {
+    width: 50%;
+}
+
+#tab-ul li a {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    color: #222;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 상품평 쓰기 드롭다운 */
+.myReview-dropdown {
+    padding: 15px;
+}
+
+#myReviewList-inner>ul {
+    padding: 10px 0;
+}
+
+#myReviewList-inner,
+#myReviewList-inner>ul>li {
+    display: flow-root;
+}
+
+#review-write ul>li {
+    display: flow-root;
+    padding:15px;
+}
+
+#myReviewList-inner>ul>li {
+    padding: 10px 0;
+}
+
+/* 드롭다운 */
+.select-month{
+    border-radius: 0;
+    height: 35px;
+    box-shadow: none;
+    
+}
+
+/* 상품 리스트 썸네일, 설명 */
+.list-thumbnail {
+    position: relative;
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+.img-area{
+	background-position: center center;
+	background-size: cover;
+	height:100px;
+	display:block;
+}
+
+.review{
+	height:250px;
+}
+
+.list-desc{
+    float:left;
+    width:70%;
+    padding:10px;
+}
+.list-brand{
+    font-size:11px;
+}
+.list-product-name{
+    font-size:11px;
+}
+.list-product-price{
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* 상세 스펙 */
+.list-product-desc {
+    padding: 5px 0;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.list-thumbnail>img {
+    width: 100px;
+}
+
+/* 구매후기 작성 링크 */
+.write-review-link{
+    padding:10px 0;
+    width:40%;
+}
+.write-review-link a{
+    background: #fff;
+    border: 1px solid #5f0080;
+    display: block;
+    color: #5f0080;
+    padding: 10px 0;
+    font-size: 11px;
+    text-align: center;
+    width:100px;
+}
+
+
+.write-review-link a:hover {
+    background: #5f0080;
+    border: 1px solid #5f0080;
+    color: #fff;
+    padding: 10px 0;
+    display: block;
+    font-size: 11px; 
+    font-weight: bold;
+}
+/* 작성한 상품평 중 아코디언 링크 화살표 */
+.review-arrow{
+    padding:10px 0;
+}
+.review-arrow>img{
+    width:20px;
+}
+
+
+/* 아코디언 메뉴 구성 */
+/* active 클래스 외에 것은 보이지 않게 하기 */
+#accordian ul ul {
+    display: none;
+}
+
+
+#accordian li.active ul {
+    display: block;
+}
+
+#accordian a {
+    text-decoration: none;
+    color: black;
+}
+
+#accordian a .list-brand {
+    font-size: 11px;
+}
+
+#accordian>ul>li {
+    padding: 15px;
+}
+
+.accordian-menu,
+#accordian,
+#accordian>ul,
+#accordian>ul>li,
+#accordian>ul>li>a {
+    display: flow-root;
+}
+
+#accordian .list-thumbnail{
+    float:left;
+    width:30%;
+}
+
+#accordian .reviewed-list-desc{
+    float:left;
+    width:50%;
+    padding:0 15px;
+}
+
+#accordian .review-arrow{
+    float:left;
+    width:10%;
+    padding:30px;
+}
+/* 아코디언 메뉴 안의 리뷰 상세 */
+.review-content {
+    background-color: rgba(95, 0, 199, 0.05)
+}
+
+.review-product-img {
+	width:100%;
+    padding:20px;
+	margin-left : 0px;
+}
+
+.review-product-img>img {
+    width: 100%;
+}
+
+.review-product-desc {
+    padding: 0 20px;
+}
+
+.review-text{ padding-top:10px; }
+
+.review-product-price {
+    font-size: 14px;
+    font-weight:bold;
+}
+
+.review-product-option {
+    font-size: 10px;
+    padding: 10px 0;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.review-delete {
+    padding: 20px 0px;
+    text-align: center;
+
+}
+
+
+.review-delete .review-cal{ 
+    background: rgb(95,0,119);
+    color: #fff !important;
+    padding: 5px 30px;
+    border-radius: 3px;
+    font-size: 12px;
+ }
+
+
+
+.review-delete>button {
+    background-color: #5f0080;
+    color: white;
+    border: 0px;
+    padding: 5px 20px;
+}

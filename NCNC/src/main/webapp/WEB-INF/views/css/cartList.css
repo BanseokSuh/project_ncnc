@@ -1,0 +1,241 @@
+/* 공통 헤더 부분 */
+#private-header {
+	padding: 15px 0;
+}
+
+#private-header .btn-back {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	display: inline-block;
+	background: url(../img/arrow-left.png) no-repeat;
+	background-size: 23px auto;
+	width: 23px;
+	height: 23px;
+	border: 0;
+	box-shadow: none;
+	text-indent: -1000px;
+}
+
+/* 타이틀 */
+#cartList-title {
+	padding: 15px;
+	font-size: 14px;
+	border-bottom: 1px solid;
+}
+
+
+.list-item-info{ float:left; width:90%; }
+
+/* 상품 리스트 부모 높이 잡기 */
+#cartList-product, #cartList-product>ul>li {
+	display: flow-root;
+}
+
+#cartList-product li {
+	padding: 15px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 상품 썸네일 */
+.list-thumbnail {
+	position: relative;
+	float: left;
+	width: 40%;
+	text-align: center;
+	padding: 10px;
+}
+
+/* 상품 썸네일 이미지 크기 */
+.list-thumbnail>img {
+	width: 100px;
+}
+
+/* 상품 썸네일 체크박스 위치 이동 */
+.list-thumbnail>input[type="checkbox"], .list-thumbnail>input[type="checkbox"]:checked
+	{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* 상품 썸네일 오른쪽 설명 부분 */
+.list-desc {
+	float: left;
+	width: 60%;
+	padding: 10px;
+}
+
+/* 오른쪽 설명 부분 중 스펙 부분 */
+.list-product-desc {
+	padding: 5px 0 7px;
+	font-size: 10px;
+	overflow: ellipsis;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+/* 삭제 버튼 */
+.list-product-delete{ float:right; width:10%; margin-top:-15px;}
+
+.list-product-delete>a {
+	color: rgba(0, 0, 0, 0.6);
+	font-size:30px;
+}
+
+.select-count {
+	border-radius: 0px;
+	border: 1px solid #5f0080;
+	width: 75px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.list-brand{ font-size:12px; }
+.list-product-name{ font-size:12px; }
+/* 가격 부분 */
+.list-product-price {
+	font-weight: bold;
+	font-size: 15px;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* 총 가격 ( 회색 부분 )*/
+#cartList-price {
+	padding: 25px;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+#cartList-price>div {
+	text-align: center;
+}
+
+#cartList-product-price {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 5px;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+#cartList-deliver-price {
+	padding: 0 10px;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+#cartList-deliver-price, #cartList-total-price {
+	font-weight: bold;
+}
+
+#cartList-total-price {
+	color: #5f0080;
+	padding: 0 5px;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+#deliver-price {
+	font-size: 10px;
+	font-weight: 300;
+	margin-right: 5px;
+}
+
+/* 총 상품금액, 예상 배송비 예상 할인 금액 */
+#cartList-price-detail {
+	display: flow-root;
+	padding: 25px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#cartList-price-info {
+	float: left;
+	width: 50%;
+}
+
+#cartList-price-info div {
+	padding-bottom: 5px;
+	font-size: 13px;
+}
+
+#cartList-price-desc {
+	float: left;
+	width: 50%;
+	text-align: right;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+#cartList-price-desc div {
+	font-weight: bold;
+}
+
+/* 결제 예상 금액 */
+#cartList-define-price {
+	display: flow-root;
+	padding: 25px;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+#cartList-explain-info {
+	float: left;
+	width: 50%;
+}
+
+#cartList-explain-price {
+	float: left;
+	width: 50%;
+	text-align: right;
+	font-weight: bold;
+	color: rgba(95, 0, 115, 0.7);
+	font-size: 18px;
+}
+
+/* 주문하기 버튼 */
+#go-to-order>button {
+	width: 100%;
+	color: white;
+	display: block;
+	padding: 15px;
+	margin: 0 15px 30px; text-align : center;
+	background-color: #5f0080;
+	text-align: center;
+}
+/* 주문하기 버튼 */
+#go-to-order>a {
+	width: 100%;
+	color: white;
+	display: block;
+	padding: 15px;
+	margin: 0 15px 30px; text-align : center;
+	background-color: #5f0080;
+	text-align: center;
+}
+
+/* 배송비 안내 부분 */
+#cartList-deliver-desc>ul {
+	list-style: disc;
+	padding: 10px 25px 25px;
+}
+
+#cartList-deliver-desc>ul>li {
+	list-style: disc;
+	font-size: 10px;
+}
+
+#cartList-deliver-explain, #cartList-use-explain {
+	font-weight: bold;
+	font-size: 16px;
+	padding: 5px 15px;
+}
+
+/* 장바구니 이용안내 부분 */
+#cartList-use-desc {
+	margin-bottom: 15px;
+}
+
+#cartList-use-desc>ul {
+	list-style: disc;
+	padding: 10px 25px;
+}
+
+#cartList-use-desc>ul>li {
+	list-style: disc;
+	font-size: 10px;
+}

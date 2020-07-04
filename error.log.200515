@@ -1,0 +1,601 @@
+[2020-05-15 01:36:20.089][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdersItem(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:131) nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'item_no' in 'class java.lang.Integer'
+[2020-05-15 08:52:49.064][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdersItem(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:131) nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'item_no' in 'class java.lang.Integer'
+[2020-05-15 09:05:34.822][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdersItem(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:131) nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'item_no' in 'class java.lang.Integer'
+[2020-05-15 09:40:55.362][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdersItem(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:131) com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptionsCart cannot be cast to java.util.List
+[2020-05-15 09:42:39.025][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdersItem(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:131) com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptionsCart cannot be cast to java.util.List
+[2020-05-15 14:56:26.487][ERROR] Slf4jSpyLogDelegator.exceptionOccured(Slf4jSpyLogDelegator.java:144) 19. PreparedStatement.execute() SELECT cou_no, cou_name, cou_exp, cou_price, cou_condition, 
+			cou_max_price, reg_date, edit_date, mem_no 
+		FROM coupon as c, member as m
+		WHERE c.mem_no = m.mem_no AND c.mem_no = 1
+
+java.sql.SQLIntegrityConstraintViolationException: Column 'reg_date' in field list is ambiguous
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at sun.reflect.GeneratedMethodAccessor66.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy27.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy6.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223)
+	at com.myncnc.ncnc.service.impl.CouponServiceImpl.getCouponList(CouponServiceImpl.java:48)
+	at com.myncnc.ncnc.controllers.OrdersController.selectOrderItem(OrdersController.java:251)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[2020-05-15 14:56:27.034][ERROR] CouponServiceImpl.getCouponList(CouponServiceImpl.java:57) 
+### Error querying database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'reg_date' in field list is ambiguous
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\CouponMapper.xml]
+### The error may involve CouponMapper.selectList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT cou_no, cou_name, cou_exp, cou_price, cou_condition,     cou_max_price, reg_date, edit_date, mem_no    FROM coupon as c, member as m   WHERE c.mem_no = m.mem_no AND c.mem_no = 1
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'reg_date' in field list is ambiguous
+; Column 'reg_date' in field list is ambiguous; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'reg_date' in field list is ambiguous
+[2020-05-15 15:46:53.102][ERROR] Slf4jSpyLogDelegator.exceptionOccured(Slf4jSpyLogDelegator.java:144) 20. PreparedStatement.execute() SELECT m.mem_no, m.mem_name, m.mem_postcode, m.mem_addr1, m.mem_addr2,
+		m.mem_tel
+		FROM member WHERE mem_no=1;
+
+java.sql.SQLSyntaxErrorException: Unknown column 'm.mem_no' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at sun.reflect.GeneratedMethodAccessor67.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy27.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy6.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at com.myncnc.ncnc.service.impl.OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdermember(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:170)
+	at com.myncnc.ncnc.controllers.OrdersController.selectOrderItem(OrdersController.java:246)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[2020-05-15 15:46:53.925][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdermember(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:179) 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'm.mem_no' in 'field list'
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.xml]
+### The error may involve OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.selectOrdermember-Inline
+### The error occurred while setting parameters
+### SQL: SELECT m.mem_no, m.mem_name, m.mem_postcode, m.mem_addr1, m.mem_addr2,   m.mem_tel   FROM member WHERE mem_no=1;
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'm.mem_no' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'm.mem_no' in 'field list'
+[2020-05-15 16:12:27.945][ERROR] Slf4jSpyLogDelegator.exceptionOccured(Slf4jSpyLogDelegator.java:144) 19. PreparedStatement.execute() SELECT m.mem_no, m.mem_name, m.mem_postcode, m.mem_addr1, m.mem_addr2,
+		m.mem_tel, p.po_value
+		FROM member as m, point as p WHERE m.mem_no = p.mem_no AND m.mem_no=1;
+
+java.sql.SQLSyntaxErrorException: Table 'ncnc.point' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at sun.reflect.GeneratedMethodAccessor66.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy27.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy6.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at com.myncnc.ncnc.service.impl.OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdermember(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:170)
+	at com.myncnc.ncnc.controllers.OrdersController.selectOrderItem(OrdersController.java:246)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[2020-05-15 16:12:28.379][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectOrdermember(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:179) 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ncnc.point' doesn't exist
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.xml]
+### The error may involve OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.selectOrdermember-Inline
+### The error occurred while setting parameters
+### SQL: SELECT m.mem_no, m.mem_name, m.mem_postcode, m.mem_addr1, m.mem_addr2,   m.mem_tel, p.po_value   FROM member as m, point as p WHERE m.mem_no = p.mem_no AND m.mem_no=1;
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ncnc.point' doesn't exist
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'ncnc.point' doesn't exist
+[2020-05-15 19:18:46.683][ERROR] FrameworkServlet.initServletBean(FrameworkServlet.java:534) Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mypageController' defined in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\com\myncnc\ncnc\controllers\MypageController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1320)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:985)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4885)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5199)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3759)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:291)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5537)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1353)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	... 31 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at com.myncnc.ncnc.controllers.MypageController.<init>(MypageController.java:31)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:200)
+	... 33 more
+[2020-05-15 19:24:09.448][ERROR] FrameworkServlet.initServletBean(FrameworkServlet.java:534) Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mypageController' defined in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\com\myncnc\ncnc\controllers\MypageController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1320)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:985)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4885)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5199)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1412)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1402)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	... 29 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at com.myncnc.ncnc.controllers.MypageController.<init>(MypageController.java:31)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:200)
+	... 31 more
+[2020-05-15 19:24:15.015][ERROR] FrameworkServlet.initServletBean(FrameworkServlet.java:534) Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mypageController' defined in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\com\myncnc\ncnc\controllers\MypageController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1320)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:763)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:134)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.MypageController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	... 37 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at com.myncnc.ncnc.controllers.MypageController.<init>(MypageController.java:31)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:200)
+	... 39 more
+[2020-05-15 19:38:09.830][ERROR] FrameworkServlet.initServletBean(FrameworkServlet.java:534) Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\com\myncnc\ncnc\controllers\ReviewController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.ReviewController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1320)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:985)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4885)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5199)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3759)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:291)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5537)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1353)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.ReviewController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	... 31 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at com.myncnc.ncnc.controllers.ReviewController.<init>(ReviewController.java:20)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:200)
+	... 33 more
+[2020-05-15 19:39:36.748][ERROR] FrameworkServlet.initServletBean(FrameworkServlet.java:534) Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\com\myncnc\ncnc\controllers\ReviewController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.ReviewController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1320)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:985)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4885)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5199)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3759)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:291)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5537)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1353)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.myncnc.ncnc.controllers.ReviewController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	... 31 more
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The import com.myncnc.ncnc.model.OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved
+	The import com.myncnc.ncnc.service.OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptions cannot be resolved to a type
+	OrdersMemberPointsDeliveryCouponImagesItemOptionsService cannot be resolved to a type
+
+	at com.myncnc.ncnc.controllers.ReviewController.<init>(ReviewController.java:20)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:200)
+	... 33 more

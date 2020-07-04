@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* 전체요소 */
+p {
+	margin: 0;
+}
+
+h2 {
+	padding: 0;
+	margin: 0;
+}
+
+/* 헤더 */
+#private-header {
+	padding: 15px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#private-header .btn-back {
+	position: absolute;
+	left: 10px;
+	display: inline-block;
+	background: url(../img/arrow-left.png) no-repeat;
+	background-size: 23px auto;
+	width: 23px;
+	height: 23px;
+	border: 0;
+	box-shadow: none;
+	text-indent: -1000px;
+}
+
+/* 바디 */
+.jjim-body {
+	padding: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.jjim-body span {
+	color: purple;
+	font-weight: bold;
+}
+
+/* 전체삭제 버튼 */
+.jjim-body button {
+	float: right;
+	background-color: #5f0080;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+}
+
+/* 내용 */
+
+/* 상품 리스트 css */
+
+#jjim-list, #jjim-list>ul>li {
+	display: flow-root;
+}
+
+#jjim-list>ul>li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+#jjim-list .btn-cls {
+	float: right;
+	display: inline-block;
+	background: #fff url(../img/close.png) no-repeat;
+	background-size: 10px auto;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	box-shadow: none;
+	text-indent: -10000px;
+}
+
+#jjim-list a {
+	float: right;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+.list-thumbnail {
+	position: relative;
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding: 10px;
+}
+
+.list-desc {
+	float: left;
+	width: 50%;
+	padding: 30px 0;
+}
+
+.list-product-desc {
+	padding: 5px 0;
+	font-size: 10px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.list-thumbnail>img {
+	width: 80%;
+}
+
+.list-product-price {
+	font-weight: bold;
+	font-size: 14px;
+}

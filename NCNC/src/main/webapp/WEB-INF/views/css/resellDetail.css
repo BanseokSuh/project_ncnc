@@ -1,0 +1,243 @@
+/********************* 상단영역 *********************/
+.top {
+    padding: 15px 0;
+}
+
+/* 뒤로가기 버튼 */
+.top > .btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+
+
+/********************* 중간영역 *********************/
+/********************* 캐러셀 영역 *********************/
+.carousel-inner > .item > img {
+    min-width: 100%;
+    max-height: 50em;
+}
+
+/* margin-bottom을 줌으로써 글 내용 아래로 밀기 */
+.carousel-inner {
+    margin-bottom: 50px;
+}
+
+/* 캐러셀 활성화 알림이 아래로 내리기 */
+.carousel-indicators {
+    bottom: -35px;
+}
+
+/* 비활성 캐러셀*/
+.carousel-indicators li {
+    background-color: darkgray;
+    width: 12px;
+    height: 12px;
+}
+
+/* 활성 캐러셀 */
+.carousel-indicators .active {
+    background-color: #5f0080;
+}
+
+/********************* 캐러셀 영역 끝 *********************/
+
+/********************* 본문 영역 *********************/
+#eve-detail-text {
+    text-align: left;
+    padding: 30px 20px;
+}
+
+/* 조회수 */
+.view_count_wrap {
+    margin-bottom: 6px;
+    color: gray;
+    font-size: 13px;
+    display: inline-block;
+    padding-right: 6px;
+}
+
+/* 게시일 */
+.post-date-wrap {
+    font-size: 13px;
+    color: gray;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+/* 가격 */
+#eve-detail-text h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#eve-detail-text .prd-sub {
+    font-size: 13px;
+    color: gray;
+}
+
+p {
+    font-size: 13px;
+}
+
+/* 내용 영역을 테이블로 구성할 시 */
+#eve-detail-text table {
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: right;
+    /* color: rgba(59, 0, 119, 0.8); */
+    color: gray;
+}
+
+#eve-detail-text table td {
+    text-align: left;
+    width: 80%;
+    font-size: 13px;
+}
+
+#eve-detail-text table th {
+    text-align: left;
+    width: 20%;
+    padding-right: 10px;
+    font-size: 13px;
+}
+
+/********************* 본문 영역 끝 *********************/
+/* 문의 알림 */
+.contact_notice {
+    color: mediumpurple;
+    margin-bottom: -22px;
+    text-indent: 5px;
+    font-size: 12px;
+}
+
+/* 판매자 */
+.emoji {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+}
+
+/* 안전거래 판매자 */
+.nickname {
+    display: inline-block;
+    height: 50px;
+    color: mediumpurple;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+/* 판매자 아이디 */
+.nickname .name {
+    color: black;
+    font-size: 15px;
+}
+
+/* 댓글 입력창 */
+#eve-detail-reply-write {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 40px 15px;
+    display: flow-root;
+}
+
+/* 댓글 입력창 감싸개 */
+#eve-detail-reply-write .textarea-btn-wrap {
+    margin: 15px 0 20px 0;
+    display: flow-root;
+}
+
+/* 입력창 */
+#eve-detail-reply-write textarea {
+    width: 80%;
+    height: 50px;
+    border: 0;
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    float: left;
+    padding: 10px;
+}
+
+/* 등록 버튼 */
+#eve-detail-reply-write #reply-result {
+    width: 100%;
+    padding: 7px 0;
+    border: 0;
+    background: #5f0080;
+    color: #fff;
+    font-size: 13px;
+    display: inline;
+}
+
+/* 등록 버튼 감싸개 */
+#eve-detail-reply-write .btn-wrap {
+    float: right;
+    width: 18%;
+    margin: 10px 0;
+}
+
+/*댓글 리스트 영역*/
+#reply-list-all {
+    color: #777;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#reply-list-all .reply-list-all-num {
+    color: rgba(95, 0, 119, 0.5);
+    font-weight: bold;
+}
+
+/* 댓글 리스트 각각 영역 */
+#eve-detail-reply-list li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 15px;
+    display: flow-root
+}
+
+#eve-detail-reply-list .reply-area {
+    width: 90%;
+}
+
+#eve-detail-reply-list .eve-reply-userid {
+    font-weight: bold;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#eve-detail-reply-list .eve-reply-txt {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#eve-detail-reply-list .eve-reply-date {
+    font-size: 11px;
+    color: #999;
+}
+
+#eve-detail-reply-list .btn-area {
+    width: 10%;
+    text-align: right;
+}
+
+#eve-detail-reply-list .eve-reply-menu img {
+    width: 15px;
+    opacity: 0.3;
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+}

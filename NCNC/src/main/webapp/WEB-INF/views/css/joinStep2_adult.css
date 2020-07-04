@@ -1,0 +1,79 @@
+/********************* 상단영역 *********************/
+
+
+.inner {
+    padding: 0 20px 80px;
+}
+
+.top>.btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+.top{
+    padding: 15px 0;
+}
+
+/* 상단 약관동의 탭 비활성화 처리 */
+#tab-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+
+/********************* 중간영역 *********************/
+/*14세 이상 체크박스 둘레*/
+.contents .contents_wrap .checkbox_wrap01 {
+    display: block;
+    margin: 30px 0 20px;
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    background-color: #fff;
+    outline: none;
+}
+
+/* 체크박스 내용 */
+.contents .contents_wrap label {
+    font-size: 13px;
+}
+
+/* 약관동의 둘레 */
+.terms_wrap .terms {
+    margin-bottom: 40px;
+}
+
+/* 약관동의 */
+.terms_wrap .terms .term_content {
+    margin: 10px 0;
+    height: 200px;
+    overflow: scroll;
+    border: 1px solid #c9c9c9;
+}
+
+/********************* 하단영역 *********************/
+/* 버튼 둘레 */
+.contents .contents_wrap .btn {
+    width: 100%;
+}
+
+/* 버튼 */
+.contents .contents_wrap .btn>a {
+    display: inline-block;
+    width: 50%;
+}

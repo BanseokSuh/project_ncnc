@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CartMemberItemOptionsImagesMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="cartMemberItemOptionsImagesMap"
+		type="com.myncnc.ncnc.model.CartMemberItemOptionsImages">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cart_no" column="cart_no" />
+		<result property="cart_item_qty" column="cart_item_qty" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<result property="cart_type" column="cart_type" />
+		<result property="item_brand" column="item_brand" />
+		<result property="item_name" column="item_name" />
+		<result property="item_cpu" column="item_cpu" />
+		<result property="item_inch" column="item_inch" />
+		<result property="item_ram" column="item_ram" />
+		<result property="item_os" column="item_os" />
+		<result property="item_weight" column="item_weight" />
+		<result property="item_graphic" column="item_graphic" />
+		<result property="item_ssd" column="item_ssd" />
+		<result property="item_hdd" column="item_hdd" />
+		<result property="item_price" column="item_price" />
+		<result property="item_discount" column="item_discount" />
+
+		<result property="mem_no" column="mem_no" />
+		<result property="mem_id" column="mem_id" />
+		<result property="mem_pw" column="mem_pw" />
+		<result property="mem_name" column="mem_name" />
+		<result property="mem_email" column="mem_email" />
+		<result property="mem_tel" column="mem_tel" />
+		<result property="mem_birth" column="mem_birth" />
+		<result property="mem_gender" column="mem_gender" />
+		<result property="mem_addr1" column="mem_addr1" />
+		<result property="mem_addr2" column="mem_addr2" />
+		<result property="mem_reply" column="mem_reply" />
+		<result property="mem_postcode" column="mem_postcode" />
+
+		<result property="item_no" column="item_no" />
+		<result property="item_rel" column="item_rel" />
+		<result property="item_hit" column="item_hit" />
+		<result property="item_cnt" column="item_cnt" />
+
+		<result property="opt_no" column="opt_no" />
+		<result property="opt_name" column="opt_name" />
+		<result property="opt_price" column="opt_price" />
+		<result property="ord_no" column="ord_no" />
+
+		<result property="id" column="id" />
+		<result property="origin_name" column="origin_name" />
+		<result property="file_path" column="file_path" />
+		<result property="content_type" column="content_type" />
+		<result property="file_size" column="file_size" />
+		<result property="img_type" column="img_type" />
+		<result property="parent_id" column="parent_id" />
+	</resultMap>
+
+
+	<!-- 장바구니(A) 목록 리스트 전체 조회 -->
+	<select id="selectList"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages"
+		resultMap="cartMemberItemOptionsImagesMap">
+		<!-- SELECT c.item_no, c.cart_item_qty, c.reg_date, c.edit_date, c.cart_type, 
+			c.item_brand, c.item_name, c.item_cpu, c.item_inch, c.item_ram, c.item_os, 
+			c.item_weight, c.item_graphic, c.item_ssd, c.item_hdd, c.item_price, TRUNCATE(c.item_price-(c.item_price*c.item_discount/100),-1) 
+			as ord_price, im.file_path FROM cart as c, images as im WHERE mem_no=#{mem_no} 
+			AND cart_type=#{cart_type} AND im.img_type="A" AND c.item_no=im.parent_id -->
+		SELECT c.cart_no, g.origin_name, c.item_no, c.cart_item_qty,
+		c.reg_date, c.edit_date, c.cart_type, c.item_brand, c.item_name,
+		c.item_cpu, c.item_inch,
+		c.item_ram, c.item_os, c.item_weight,
+		c.item_graphic, c.item_ssd, c.item_hdd,
+		c.item_price, c.opt_no,c.item_discount,
+		o.opt_name, o.opt_price,
+		TRUNCATE(c.item_price-(c.item_price*c.item_discount/100),-1) as
+		ord_price, g.file_path
+		FROM cart as c, images as g, options as o
+		WHERE mem_no=#{mem_no} AND c.cart_type='A' AND g.img_type="A" AND c.item_no=g.parent_id
+		AND c.opt_no = o.opt_no ORDER BY c.cart_no DESC ;
+	</select>
+	
+	<!-- 찜(B) 목록 리스트 전체 조회 -->
+	<select id="selectJJimList"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages"
+		resultMap="cartMemberItemOptionsImagesMap">
+		<!-- SELECT c.item_no, c.cart_item_qty, c.reg_date, c.edit_date, c.cart_type, 
+			c.item_brand, c.item_name, c.item_cpu, c.item_inch, c.item_ram, c.item_os, 
+			c.item_weight, c.item_graphic, c.item_ssd, c.item_hdd, c.item_price, TRUNCATE(c.item_price-(c.item_price*c.item_discount/100),-1) 
+			as ord_price, im.file_path FROM cart as c, images as im WHERE mem_no=#{mem_no} 
+			AND cart_type=#{cart_type} AND im.img_type="A" AND c.item_no=im.parent_id -->
+		SELECT c.cart_no, g.origin_name, c.item_no, c.cart_item_qty,
+		c.reg_date, c.edit_date, c.cart_type, c.item_brand, c.item_name,
+		c.item_cpu, c.item_inch,
+		c.item_ram, c.item_os, c.item_weight,
+		c.item_graphic, c.item_ssd, c.item_hdd,
+		c.item_price, c.opt_no,
+		o.opt_name, o.opt_price,
+		TRUNCATE(c.item_price-(c.item_price*c.item_discount/100),-1) as
+		ord_price, g.file_path
+		FROM cart as c, images as g, options as o
+		WHERE mem_no=#{mem_no} AND c.cart_type='B' AND g.img_type="A" AND c.item_no=g.parent_id
+		AND c.opt_no = o.opt_no ORDER BY c.cart_no DESC ;
+	</select>
+
+	<!-- jjim Count -->
+	<select id="selectCartCount"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages"
+		resultType="int">
+		SELECT COUNT(*) FROM cart as c, images as g
+		WHERE
+		mem_no=#{mem_no} AND g.img_type="A" AND c.item_no=g.parent_id AND
+		cart_type=#{cart_type};
+	</select>
+
+	<!-- 찜, 카트 전체 삭제 -->
+	<delete id="deleteCartCount"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages">
+		DELETE FROM cart WHERE mem_no=#{mem_no} AND
+		cart_type=#{cart_type};
+	</delete>
+
+	<!-- 카트 개별 삭제 -->
+	<delete id="deleteCartOne"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages">
+		DELETE FROM cart WHERE mem_no=#{mem_no} AND
+		cart_type=#{cart_type} AND
+		cart_no=#{cart_no};
+	</delete>
+	
+	<!-- 찜 개별 삭제 -->
+	<delete id="deleteJjimOne"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages">
+		DELETE FROM cart WHERE mem_no=#{mem_no} AND
+		cart_type=#{cart_type} AND
+		item_no=#{item_no};
+	</delete>
+	
+
+	<!-- 멤버 탈퇴를 위한 매퍼 -->
+	<update id="unsetMember"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages">
+		UPDATE cart SET mem_no = null WHERE mem_no=#{mem_no}
+	</update>
+
+	<!-- 카트, 찜 입력-->
+	<insert id="insertCartList"
+		parameterType="com.myncnc.ncnc.model.CartMemberItemOptionsImages"
+		useGeneratedKeys="true" keyProperty="cart_no">
+		INSERT INTO cart (mem_no, item_no,
+		cart_item_qty, item_brand, item_name, item_cpu, item_inch,
+		item_ram,
+		item_os, reg_date, edit_date, item_weight, item_graphic,
+		item_ssd,
+		item_hdd, item_price, item_discount, cart_type, opt_no)
+		VALUES
+		(#{mem_no}, #{item_no}, #{cart_item_qty}, #{item_brand}, #{item_name},
+		#{item_cpu}, #{item_inch},
+		#{item_ram}, #{item_os}, now(), now(),
+		#{item_weight}, #{item_graphic},
+		#{item_ssd}, #{item_hdd},
+		#{item_price}, #{item_discount}, #{cart_type}, #{opt_no});
+	</insert>
+</mapper>

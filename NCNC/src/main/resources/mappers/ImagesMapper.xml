@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ImagesMapper">
+
+
+    <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+    <resultMap id="imagesMap"
+        type="com.myncnc.ncnc.model.Images">
+        <result property="id"   column="id" />
+        <result property="origin_name"     column="origin_name" />
+        <result property="file_path"   column="file_path" />
+        <result property="content_type" column="content_type" />
+        <result property="file_size"      column="file_size" />
+        <result property="img_type" column="img_type" />
+        <result property="reg_date"     column="reg-date" />
+        <result property="edit_date"   column="edit_date" />
+
+    </resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.myncnc.ncnc.model.Images"
+		resultMap="imagesMap">
+		SELECT file_path FROM member WHERE img_type=#{img_type};
+	</select>
+
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="com.myncnc.ncnc.model.Images"
+		resultMap="imagesMap">
+		SELECT file_path FROM member WHERE img_type=#{img_type};
+
+</select>
+
+</mapper>

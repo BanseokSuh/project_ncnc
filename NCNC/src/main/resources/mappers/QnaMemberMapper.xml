@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnaMemberMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="qnaMemberMap"
+		type="com.myncnc.ncnc.model.QnaMember">
+		<!-- Qna 컬럼 -->
+		<result property="qna_no" column="qna_no" />
+		<result property="qna_status" column="qna_status" />
+		<result property="qna_type" column="qna_type" />
+		<result property="qna_contents" column="qna_contents" />
+		<result property="mem_no" column="mem_no" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<!-- Member 컬럼 -->
+		<result property="mem_id" column="mem_id" />
+		<result property="mem_pw" column="mem_pw" />
+		<result property="mem_name" column="mem_name" />
+		<result property="mem_email" column="mem_email" />
+		<result property="mem_tel" column="mem_tel" />
+		<result property="mem_birth" column="mem_birth" />
+		<result property="mem_gender" column="mem_gender" />
+		<result property="mem_addr1" column="mem_addr1" />
+		<result property="mem_addr2" column="mem_addr2" />
+		<result property="mem_reply" column="mem_reply" />
+		<result property="mem_postcode" column="mem_postcode" />
+	</resultMap>
+
+
+
+	<!-- 1:1 문의 > 입력 (cnct.jsp) -->
+	<insert id="insertQnaMemberItem"
+		parameterType="com.myncnc.ncnc.model.QnaMember"
+		useGeneratedKeys="true" keyProperty="qna_no">
+		INSERT INTO qna(qna_type, qna_contents, mem_no, reg_date, edit_date) VALUES(#{qna_type}, #{qna_contents}, #{mem_no}, now(), now());
+	</insert>
+
+	<!-- 1:1 문의 > 단일행 조회 (cnct.jsp) -->
+	<select id="selectQnaMemberItem"
+		parameterType="com.myncnc.ncnc.model.QnaMember"
+		resultMap="qnaMemberMap">
+		SELECT q.qna_no, q.qna_status, q.qna_type, q.qna_contents, q.reg_date FROM qna q INNER join member m ON q.mem_no = m.mem_no AND qna_no = #{qna_no} AND q.mem_no = #{mem_no};
+	</select>
+
+	<!-- 1:1 문의 > 목록 조회 (cnct.jsp) -->
+	<!-- 목록 보기 sql문 짜기!!! -->
+	<select id="selectQnaMemberList"
+		parameterType="com.myncnc.ncnc.model.QnaMember"
+		resultMap="qnaMemberMap">
+		<!-- SELECT q.qna_status, q.qna_type, q.qna_contents, q.reg_date FROM qna 
+			q INNER join member m ON q.mem_no = #{mem_no}; -->
+		SELECT q.qna_no, q.qna_status, q.qna_type, q.qna_contents, q.reg_date, q.qna_no, q.mem_no FROM qna q INNER join member m ON q.mem_no = m.mem_no AND m.mem_no = #{mem_no} ORDER BY q.qna_no DESC;
+	</select>
+
+	<!-- 1:1 문의 > 삭제 (cnct.jsp) -->
+	<!-- 문의 삭제 sql문 짜기!!! -->
+	<delete id="deleteQnaMemberItem"
+		parameterType="com.myncnc.ncnc.model.QnaMember">
+		DELETE FROM qna WHERE qna_no = #{qna_no} AND mem_no = #{mem_no};
+	</delete>
+
+	<!-- 1:1 문의 > 수정 (cnct.jsp) -->
+	<!-- 문의 수정 sql문 짜기!!! -->
+	<update id="editQnaMemberItem"
+		parameterType="com.myncnc.ncnc.model.QnaMember">
+		UPDATE qna SET qna_type=#{qna_type},
+		qna_contents=#{qna_contents},
+		<!-- DATE_FORMAT(now(), '%Y-%m-%d') AS edit_date -->
+		edit_date = #{edit_date}
+		WHERE mem_no = #{mem_no}
+		AND qna_no = #{qna_no}
+	</update>
+
+</mapper>

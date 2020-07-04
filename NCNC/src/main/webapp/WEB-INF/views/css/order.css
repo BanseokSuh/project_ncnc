@@ -1,0 +1,437 @@
+@charset "utf-8";
+
+/* 공통요소 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+
+a,
+a:hover {
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 16px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+/* 내용 */
+
+div.order-name {
+        background: rgba(0, 0, 0, 0.05);
+}
+
+div.order-header{ padding:15px; }
+
+
+p.sub-title {
+    font-size: 14px;
+    padding: 15px;
+    text-align:left;
+    font-weight:bold;
+}
+
+
+/* 주문자 */
+div.o-name {
+    padding: 20px;
+}
+
+
+/* 배송지 정보 */
+div.order-info {
+    background: rgba(0, 0, 0, 0.05);
+
+}
+
+div.order-info-list {
+    padding: 20px;
+    display:flow-root;
+}
+
+.ordr-info-a{ width:70%; float:left;}
+.ordr-info-a li{ font-size:12px; }
+#mem-infor .info-list li {margin-bottom:5px; }
+#mem-infor .info-list li:last-child{ padding-top:7px; }
+#quick-menu ul:first-child{
+	float:left;
+	width:30%; 
+	text-align:left;
+}
+
+.cou-section{ padding:15px; font-weight:bold; background:rgba(0,0,0,0.05); display:block; }
+.cou-form{ padding:20px 15px; display:flow-root;}
+.cou-form .sub-title{ float:left; width:30%; padding-top:7px; font-size:13px;}
+#coupon-content{ float:left; width:70%; height:30px; border:1px solid rgba(0,0,0,0.2); font-size:12px;}
+
+#couprice{ width:30%; height:30px; border:0; margin-right:2%;}
+
+
+
+.order-payway-list label{ padding-top:7px; 
+	font-size:13px;}
+#quick-menu ul:last-child{
+	float:left;
+	width:70%;
+	text-align:left;
+}
+
+.o-name p{ font-size:13px; }
+
+#quick-menu ul li{ margin-botton:5px; }
+
+div.order-2 ul li p {
+    margin: 0;
+    float: left;
+    margin-right: 15px;
+    font-weight: normal;
+    color: gray;
+}
+
+div.order-2 input {
+    font-weight: normal;
+    text-align: left;
+    border:1px solid rgba(0,0,0,0.2);
+    height:30px;
+    width:100%;
+    text-indent:10px;
+}
+
+.ordr-info-a li:not(:nth-child(1)){ margin-bottom:5px; }
+
+
+.info-list {
+    float: left;
+    padding-right: 20px;
+    color: gray;
+    font-weight: normal;
+	width:30%;
+}
+
+div.order-info-list {
+    font-size: 0.9em;
+    font-weight: bold;
+
+
+}
+/* 주문상품 */
+div.order-3 img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+div.order-product-body {
+    display: flow-root;
+    padding: 20px;
+}
+
+div #body1.pull-left {
+    padding-right: 30px;
+}
+
+
+div.order-product {
+    background: rgba(0, 0, 0, 0.05);
+
+}
+
+
+div #body2.pull-left {
+    width: 70%;
+    display: contents;
+    text-align:left;
+}
+
+div #body2.o-product .brand {
+    font-size: 11px;
+
+}
+
+div #body2.o-product .content{font-size: 11px;
+    display: inline-block;
+    padding-bottom: 7px; }
+
+div #body2.o-product span.detail {
+    color: rgba(0,0,0,0.5);
+    font-size: 10px;
+}
+#body1 {
+    width: 30%;
+}
+
+
+#body2 .brand>span {
+    font-size: 1.2em;
+
+}
+#body2 {
+    float: right;
+    width: 70%;
+    text-align:left;
+}
+
+#body2 span {
+    display: block;
+}
+
+div.payment {
+    padding-top: 7px;
+    font-size: 14px;
+    color: rgba(95,0,119,0.8);
+    font-weight: bold;
+}
+div.payment span{ 
+    font-family: 'Ubuntu', sans-serif; }
+
+
+/* 포인트 사용 */
+div.order-point {
+    background: rgba(0, 0, 0, 0.05);
+
+}
+
+
+div.order-point-body button {
+    border: 1px solid;
+    padding: 5px 15px 5px 15px;
+    float: right;
+    background: #fff;
+    font-size: 0.9em;
+	width:20%;
+	height:35px;
+
+    background-color: #5f0080;
+    color: white;
+}
+
+#ord_bank{ width:70%; box-shadow: none;  border-radius: 0; height:30px; }
+.use_point{ text-align:left; padding:10px 15px 20px; font-size:12px;}
+
+div.order-point-body {
+    padding: 20px 15px;
+
+}
+
+div.order-point-body input {
+    margin-right: 20px;
+    text-indent: 10px;
+    width:70%;
+    float:left;
+    height:30px;
+
+}
+
+
+
+span.point {
+
+    border: 1px solid;
+
+}
+/* 총 결제 금액 */
+div.order-payment {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* 결제 수단 */
+div.order-payway {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+div.order-payway-list {
+    padding: 15px;
+}
+
+div.order-payway-list li {
+    padding: 15px;
+
+}
+
+
+
+.payway-list {
+    font-size: 0.9em;
+    float: left;
+}
+
+.form-control {
+    float: right;
+    width: 60%;
+
+    /* padding: 6px 12px; */
+    font-size: 0.8em;
+    line-height: 1.42857143;
+
+
+
+
+}
+
+.order-payway-list .buyer-name {
+    float: right;
+    width: 70%;
+    padding: 0;
+}
+
+.order-payway-list span {
+    padding: 5px 0;
+    font-family: 'Noto Sans KR', sans-serif !important;
+    font-size: 0.9em;
+}
+.order-payway-list div {
+    padding: 5px 0;
+}
+
+
+
+.order-payway-list input {
+	width: 100%;
+	height:30px;
+    text-indent: 10px;
+    margin-right: 10px;
+    border:1px solid rgba(0,0,0,0.2);
+    font-size:11px;
+
+}
+
+
+
+
+
+/* 총 결제금액 > 안에 테이블 */
+.payment-list {
+    width: 100%;
+    color: #222;
+  
+
+}
+.payment-list tr{ width: 100%; }
+.payment-list th{ width: 30%; }
+.payment-list td{ width: 70%; padding: 5px 0; }
+
+
+
+.order-payment-list {
+    font-size: 0.9em;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+}
+
+.order-payment-list li {
+    padding: 5px;
+
+}
+
+.payment-list {
+    font-weight: normal;
+}
+
+div.order-payment-list {
+    font-weight: bold;
+}
+
+/** 총결제금액 > 총금액과 제목 */
+
+div.result {
+font-size: 13px;
+padding: 15px;
+
+}
+
+.result span {
+    float: right;
+    color: rgba(95,0,119,0.7);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* 걀제 수단 */
+div .allcheck {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 10px;
+
+}
+
+div .check-one{ padding-top:10px; }
+div .check-one label:last-child{ padding-top:5px; }
+
+div.order-payway-list button{
+    border: 1px solid;
+    padding: 5px 15px 5px 15px;
+    
+    background: #fff;
+    font-size: 0.9em;
+
+
+    background-color: #5f0080;
+    color: white;
+}
+
+div.order-payway-list ul input {
+    
+    border: 1px solid;
+    padding: 5px 15px 5px 15px;
+}
+
+
+
+
+.payway-list input {
+
+    text-align: center;
+}
+
+
+
+div.button-box button {
+    width: 100%;
+    padding: 15px 25px 15px 25px;
+    background-color: #5f0080;
+    color: white;
+    font-size: 14px;
+	border:0;
+
+}
+
+div.checklist {
+    padding: 20px;
+    font-size:12px;
+
+}
+
+div.checklist input {
+        width: 15px;
+    height: 15px;
+}
+
+div.button-box {
+    text-align: center;
+    padding: 20px;
+}

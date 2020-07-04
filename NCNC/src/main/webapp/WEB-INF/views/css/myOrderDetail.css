@@ -1,0 +1,362 @@
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a,a:hover{
+    color:black
+}
+
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 주문 일자 , 배송상태 날짜 */
+#order-id {
+    float: left;
+    width: 50%;
+}
+
+#order-id div{
+    font-size: 12px;
+}
+#order-detail-title {
+    padding: 15px;
+    display: flow-root;
+}
+
+#order-status {
+    float: left;
+    width: 50%;
+    border:1px solid;
+}
+
+/* 배송 상태 */
+#order-status-option {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    background-color:#333;
+    color:white;
+}
+
+/* 배송 일자 */
+#order-deliver-date {
+    float: left;
+    width: 50%;
+    border-left:0px;
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+}
+
+/* 배송지 css */
+#address-info {
+    display: flow-root;
+}
+
+/* 배송지 타이틀 */
+#address-info-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#address-info-detail {
+    display: flow-root;
+    padding: 15px;
+}
+
+/* 왼쪽 부분 */
+#info {
+    float: left;
+    width: 30%;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* 오른쪽 부분 */
+#desc {
+    float: left;
+    width: 70%;
+}
+
+/* 주문 상품 css */
+#order-product {
+    display: flow-root;
+}
+
+/* 주문 상품 타이틀 */
+#order-product-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+#order-product>ul {
+    padding: 10px 0;
+}
+
+#order-product,
+#order-product>ul>li {
+    display: flow-root;
+}
+
+#cartList-product li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 상품 썸네일 */
+.list-thumbnail {
+    position: relative;
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* 상세 내용 부분 */
+.list-desc {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+
+/* 상세 내용 중 스펙 부분 */
+.list-product-desc {
+    padding-top: 10px;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.list-pro-option{
+	font-size:12px;
+	padding-bottom:10px;
+	color: rgba(0, 0, 0, 0.6);	
+}
+
+
+.list-thumbnail>img {
+    width: 100px;
+}
+
+#order-product .status-cel{  font-weight: bold;   color: rgba(59,0,119,0.8); padding: 5px 0;}
+
+/* 상품평 작성, 상품 취소 버튼 */
+.link-button-parent {
+    padding: 0 100px 10px 0px;
+    display: flow-root;
+}
+
+.link-button-parent a {
+    float:left;
+    width:48%;
+    margin:0 1px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #5f0080;
+    color: #5f0080;
+    padding: 10px 0;
+    display: block;
+    font-size: 10px;
+}
+
+.link-button-parent a:hover{
+    background: #5f0080;
+    border: 1px solid #5f0080;
+    color: #fff;
+    padding: 10px 0;
+    display: block;
+    font-size: 10px; 
+    font-weight: bold;
+}
+
+/* 가격 부분 */
+.list-product-price {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* 결제 정보 css */
+#payment-info {
+    display: flow-root;
+}
+
+
+/* 결제 정보 타이틀 */
+#payment-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#payment-credit {
+    display: flow-root;
+}
+
+
+#credit-card {
+    float: left;
+    width: 50%;
+    padding: 15px;
+}
+
+#credit-card-desc {
+    float: left;
+    width: 50%;
+    padding: 15px;
+}
+
+/* 총 결제 금액 css */
+#total-price {
+    display: flow-root;
+}
+
+/* 총 결제 금액 타이틀 */
+#total-price-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#total-price-detail {
+    display: flow-root;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 5px;
+}
+
+/* 왼쪽 부분 */
+#price-info {
+    float: left;
+    width: 50%;
+}
+
+/* 오른쪽 부분 */
+#price-desc {
+    float: left;
+    width: 50%;
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* 결제 상세 아코디언 부분 */
+#payment-info-detail {
+    text-align: center;
+    padding: 15px;
+}
+
+#payment-info-detail a>img {
+    width: 15px;
+    margin-left:5px;
+}
+
+/* 아코디언 메뉴 css */
+#accordian ul ul {
+    display: none;
+}
+
+
+#accordian li.active ul {
+    display: block;
+}
+
+#accordian a {
+    text-decoration: none;
+    color: black;
+}
+
+#accordian a .list-brand {
+    font-size: 15px;
+}
+
+.accordian-menu,
+#accordian,
+#accordian>ul,
+#accordian>ul>li,
+#accordian>ul>li>a {
+    display: flow-root;
+    cursor: pointer;
+}
+
+#accordian-detail-info{
+    float:left;
+    width:50%;
+    text-align: left;
+}
+
+#accordian-detail-desc{
+    float: left;
+    width:50%;
+    text-align: right;
+}
+
+.info-small{
+    color:rgba(0,0,0,0.4);
+    font-size:12px;
+    padding:5px;
+}
+
+#go-to-backpage>a {
+    color: white;
+    display: block;
+    padding: 15px;
+}
+
+#footer-link {
+    margin: 15px 0;
+}
+
+/* 목록으로 가기 버튼 css */
+#go-to-backpage {
+    margin: 0 15px 15px 15px;
+    text-align: center;
+    background-color: #5f0080;
+}
+
+#go-to-backpage>a {
+    display: block;
+    border: 1px solid;
+    color: white;
+}
+
+#total-price-view {
+    display: flow-root;
+    padding: 15px;
+}
+
+#view-info,
+#view-price {
+    float: left;
+    width: 50%;
+   
+}
+
+#view-price {
+    text-align: right;
+    font-weight: bold;
+    color: #5f0080;
+}

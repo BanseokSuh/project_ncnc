@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PointsMemberMapper">
+
+
+	<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+	<resultMap id="pointsMemberMap"
+		type="com.myncnc.ncnc.model.PointsMember">
+		<result property="po_no" column="po_no" />
+		<result property="po_subject" column="po_subject" />
+		<result property="po_value" column="po_value" />
+		<result property="po_limit_date" column="po_limit_date" />
+		<result property="mem_no" column="mem_no" />
+		<result property="reg_date" column="reg-date" />
+		<result property="edit_date" column="edit_date" />
+
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.myncnc.ncnc.model.PointsMember"
+		resultMap="pointsMemberMap">
+		SELECT po_no, po_subject, po_value, po_limit_date, p.mem_no,
+		p.reg_date, p.edit_date
+		FROM points p
+		INNER JOIN member m ON p.mem_no =
+		m.mem_no
+		WHERE p.mem_no=#{mem_no}
+
+
+	</select>
+
+
+
+
+
+
+
+</mapper>

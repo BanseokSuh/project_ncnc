@@ -1,0 +1,193 @@
+@charset "utf-8";
+
+/* common.css
+ * 헤더(로고 검색창 장바구니)
+ * 햄버거 메뉴바 common.css
+ * 최근 본 상품 common.css
+ * 푸터 common.css
+ * 따라오는 하단 퀵메뉴
+ * 썸네일
+ */
+
+div#container h2.mini-title {
+	padding: 20px 0 20px 0;
+}
+
+/** 페이지 제목 스타일 지정하기 */
+#header .logo-search-wrap {
+    padding: 10px 60px 10px 85px;
+}
+
+#header .logo-search-wrap h2 {
+    padding-bottom: 10px;
+}
+
+
+
+/**검색창 인풋 영역 속성 --*/
+#header .logo-search-wrap .inp-search {
+    position: relative;
+    margin-top: 5px;
+}
+
+#header .logo-search-wrap .inp-search input {
+    padding-right: 50px;
+}
+
+
+.inp-search > input {
+    line-height: 35px;
+    height: 33px;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 0;
+    -webkit-border-radius: 18px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+}
+
+
+
+/**검색창 인풋 영역 > 돋보기속성 --*/
+.inp-search .btn-search {
+    right: -20px;
+}
+
+.inp-search .btn-search:after {
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+}
+
+
+
+/** 대분류 카테고리 탭 메뉴(제조사) */
+#search-list .swiper-slide {
+    text-align: center;
+}
+
+#search-title ul li {
+    text-align: center;
+}
+
+#search-title ul li a {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 13px 5px;
+    font-size: 12px;
+}
+
+#search-title .nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    font-weight: bold;
+    background: rgb(95, 0, 119);
+    color: #fff;
+    border-radius: 0;
+    padding: 13px 5px;
+    font-size: 12px;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: inline-flex;
+    transition-property: transform;
+}
+
+
+
+/** 중분류 카테고리 탭 메뉴(ASUS) */
+#search-subtitle {
+    display: flow-root;
+    background: rgba(95, 0, 119, 0.05);
+    padding: 15px 0;
+    margin-bottom: 30px;
+    font-size: 13px;
+}
+
+#search-subtitle ul > li {
+    line-height: 3;
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin-bottom: 2%
+}
+
+
+#search-subtitle ul > li a {
+    font-weight: 100;
+    color: #000;
+    font-size: 12px;
+}
+
+#search-subtitle ul > li a:focus,
+#search-subtitle ul > li a:hover {
+    color: #B487C3;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+/** 소분류 카테고리 탭 메뉴(인기순) */
+#tab-btn {
+    margin-bottom: 15px;
+}
+
+#pro-content-list .nav > li {
+    width: 25%;
+}
+
+#pro-content-list .nav-tabs {
+    border: 0;
+}
+
+#pro-content-list .nav-tabs > li > a {
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 7px;
+    color: #555;
+    font-size: 12px;
+    border: 0;
+    padding: 10px 0;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+#pro-content-list .nav-tabs > li.active > a {
+    background: #5f0080;
+    color: #fff;
+    border: 1px solid #5f0080;
+}
+
+#pro-content-list .nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    background: #fff;
+    color: #5f0080;
+    border: 1px solid #5f0080;
+    font-weight: bold;
+}
+
+#pro-content-list-inner div ul {
+    display: flow-root;
+}
+
+
+#pro-content-list {
+    counter-reset : numbering;
+    list-style-type:none;
+}
+ 
+#pro-content-list .pull-left .best-pro-num:before{
+    counter-increment : numbering; 
+    content : counter(numbering);
+}

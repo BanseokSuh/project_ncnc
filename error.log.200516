@@ -1,0 +1,206 @@
+[2020-05-16 01:00:14.188][ERROR] DocumentImageServiceImpl.getNewsList(DocumentImageServiceImpl.java:37) nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\DocumentImageMapper.xml]
+### The error may involve DocumentImageMapper.selectNewsList
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[2020-05-16 17:42:39.010][ERROR] Slf4jSpyLogDelegator.exceptionOccured(Slf4jSpyLogDelegator.java:144) 35. PreparedStatement.execute() SELECT o.ord_no, m.mem_no, m.mem_name, o.ord_memo,
+		o.item_brand, o.item_name, o.item_cpu, o.item_inch, o.item_ram,
+		o.item_os, o.item_weight, o.item_graphic, o.item_ssd, o.item_hdd,
+		o.item_price, p.po_no, p.po_value, o.ord_delivery, o.item_discount,
+		o.ord_bank, o.ord_payer, o.del_nick, m.mem_postcode, m.mem_addr1,
+		m.mem_addr2, m.mem_tel, im.origin_name, o.reg_date,
+		TRUNCATE(o.item_price-(o.item_price*o.item_discount/100)+ o.ord_delivery,-1) AS total_price
+		FROM member as m, orders as o, points as p, images as im ,item 
+		WHERE m.mem_no = o.mem_no
+		AND p.mem_no = m.mem_no AND im.parent_id =
+		item_no AND im.img_type='A' AND o.ord_no = im.parent_id
+		AND o.mem_no = 1 AND o.ord_no = 1;
+
+java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at sun.reflect.GeneratedMethodAccessor68.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy27.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy332.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at com.myncnc.ncnc.service.impl.OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectAllOne(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:68)
+	at com.myncnc.ncnc.controllers.OrdersController.orderDetail(OrdersController.java:127)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[2020-05-16 17:42:39.593][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectAllOne(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:77) 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.xml]
+### The error may involve OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.selectAllOne-Inline
+### The error occurred while setting parameters
+### SQL: SELECT o.ord_no, m.mem_no, m.mem_name, o.ord_memo,   o.item_brand, o.item_name, o.item_cpu, o.item_inch, o.item_ram,   o.item_os, o.item_weight, o.item_graphic, o.item_ssd, o.item_hdd,   o.item_price, p.po_no, p.po_value, o.ord_delivery, o.item_discount,   o.ord_bank, o.ord_payer, o.del_nick, m.mem_postcode, m.mem_addr1,   m.mem_addr2, m.mem_tel, im.origin_name, o.reg_date,   TRUNCATE(o.item_price-(o.item_price*o.item_discount/100)+ o.ord_delivery,-1) AS total_price   FROM member as m, orders as o, points as p, images as im ,item    WHERE m.mem_no = o.mem_no   AND p.mem_no = m.mem_no AND im.parent_id =   item_no AND im.img_type='A' AND o.ord_no = im.parent_id   AND o.mem_no = ? AND o.ord_no = ?;
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+[2020-05-16 17:42:45.879][ERROR] Slf4jSpyLogDelegator.exceptionOccured(Slf4jSpyLogDelegator.java:144) 37. PreparedStatement.execute() SELECT o.ord_no, m.mem_no, m.mem_name, o.ord_memo,
+		o.item_brand, o.item_name, o.item_cpu, o.item_inch, o.item_ram,
+		o.item_os, o.item_weight, o.item_graphic, o.item_ssd, o.item_hdd,
+		o.item_price, p.po_no, p.po_value, o.ord_delivery, o.item_discount,
+		o.ord_bank, o.ord_payer, o.del_nick, m.mem_postcode, m.mem_addr1,
+		m.mem_addr2, m.mem_tel, im.origin_name, o.reg_date,
+		TRUNCATE(o.item_price-(o.item_price*o.item_discount/100)+ o.ord_delivery,-1) AS total_price
+		FROM member as m, orders as o, points as p, images as im ,item 
+		WHERE m.mem_no = o.mem_no
+		AND p.mem_no = m.mem_no AND im.parent_id =
+		item_no AND im.img_type='A' AND o.ord_no = im.parent_id
+		AND o.mem_no = 1 AND o.ord_no = 1;
+
+java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at sun.reflect.GeneratedMethodAccessor68.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy27.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy332.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at com.myncnc.ncnc.service.impl.OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectAllOne(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:68)
+	at com.myncnc.ncnc.controllers.OrdersController.orderDetail(OrdersController.java:127)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[2020-05-16 17:42:45.906][ERROR] OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.getselectAllOne(OrdersMemberPointsDeliveryCouponImagesItemOptionsCartServiceImpl.java:77) 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+### The error may exist in file [C:\NCNC\JAVA20_1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\NCNC\WEB-INF\classes\mappers\OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.xml]
+### The error may involve OrdersMemberPointsDeliveryCouponImagesItemOptionsCartMapper.selectAllOne-Inline
+### The error occurred while setting parameters
+### SQL: SELECT o.ord_no, m.mem_no, m.mem_name, o.ord_memo,   o.item_brand, o.item_name, o.item_cpu, o.item_inch, o.item_ram,   o.item_os, o.item_weight, o.item_graphic, o.item_ssd, o.item_hdd,   o.item_price, p.po_no, p.po_value, o.ord_delivery, o.item_discount,   o.ord_bank, o.ord_payer, o.del_nick, m.mem_postcode, m.mem_addr1,   m.mem_addr2, m.mem_tel, im.origin_name, o.reg_date,   TRUNCATE(o.item_price-(o.item_price*o.item_discount/100)+ o.ord_delivery,-1) AS total_price   FROM member as m, orders as o, points as p, images as im ,item    WHERE m.mem_no = o.mem_no   AND p.mem_no = m.mem_no AND im.parent_id =   item_no AND im.img_type='A' AND o.ord_no = im.parent_id   AND o.mem_no = ? AND o.ord_no = ?;
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'o.del_nick' in 'field list'
+[2020-05-16 19:02:08.175][ERROR] OrdersServiceImpl.editOrders(OrdersServiceImpl.java:96) nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for OrdersMapper.cancelOrders
+### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for OrdersMapper.cancelOrders
+[2020-05-16 20:39:21.399][ERROR] OrdersServiceImpl.editOrders(OrdersServiceImpl.java:96) nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for OrdersMapper.cancelOrders
+### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for OrdersMapper.cancelOrders

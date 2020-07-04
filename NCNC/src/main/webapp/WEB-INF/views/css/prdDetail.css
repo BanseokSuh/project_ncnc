@@ -1,0 +1,593 @@
+@charset "utf-8";
+
+#proD-header {
+   padding: 15px 0;
+   position: relative;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#proD-header .btn-back {
+   position: absolute;
+   top: 15px;
+   left: 10px;
+   display: inline-block;
+   background: url(../img/arrow-left.png) no-repeat;
+   background-size: 23px auto;
+   width: 23px;
+   height: 23px;
+   border: 0;
+   box-shadow: none;
+   text-indent: -1000px;
+}
+
+/** 상품상세페이지 > 스와이프 이미지  */
+
+/* 2020.05.19 수정 **/
+:root{--swiper-theme-color:rgba(95,0,119,0.8) !important;}
+
+
+.slide-area{ position:relative; display:block; text-align:center; padding:10px;
+   height:350px !important;
+}
+
+.swiper-container {
+   width: 100%;
+   height: 100%;
+}
+
+.swiper-slide img {
+   width: 95%;
+   height: 100%;
+   margin: 0 auto;
+   display: block;
+}
+
+.swiper-pagination {
+   position: initial !important;
+}
+
+:root { 
+   -swiper-theme-color: rgba(95, 0, 119, 00.7) !important;
+}
+
+/* 상품 상세페이지 > 상단의 상품 멘트 */
+#proD-text {
+   margin: 15px;
+}
+
+#proD-inner p {
+   width: 100%;
+   height: 100%;
+}
+
+#proD-inner p img {
+   width: 100%;
+   padding: 15px;
+}
+
+#proD-brand {
+   font-size: 16px;
+   font-weight: bold;
+   color: #000;
+   margin-bottom: 5px;
+   font-family: 'Noto Sans KR', sans-serif;
+}
+
+#proD-title {
+   font-size: 15px;
+   margin-bottom: 10px;
+}
+
+.proD-badgi {
+   padding: 5px 15px;
+   border: 2px solid rgba(96, 0, 119, 0.5);
+   color: rgba(96, 0, 119, 0.5);
+   font-size: 13px;
+   font-weight: bold;
+   margin-bottom: 10px;
+   display: inline-block
+}
+
+#proD-preice {
+   font-size: 11px;
+   margin-top: 10px;
+}
+
+#proD-preice .proD-preice-num {
+   font-size: 22px;
+   font-weight: bold;
+   display: inline-block;
+   margin-left: 20px;
+   color: rgba(95, 0, 119, 0.8);
+   font-family: 'Ubuntu', sans-serif;
+}
+
+/* 배송정보 섹션 설정 */
+#proD-order-section {
+   display: flow-root;
+   padding: 20px 15px;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   font-size: 13px;
+}
+
+/* 상품정보.구매정보.상품후기.1:1문의 상품 탭 */
+#tab-ul {
+   background: rgba(0, 0, 0, 0.03);
+}
+
+/* 상품정보 영역 속성 */
+#pro-inpomation .pro-inpomation-img img {
+   width: 100%;
+}
+
+#pro-inpomation .pro-inpomation-img{ height:10000px; }
+
+#proD-content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus,
+   .nav-tabs>li.active>a:hover {
+   background: none;
+   border: 0;
+   color: #5f0080;
+   font-weight: bold;
+}
+
+#proD-content .nav-tabs>li a {
+   color: #333;
+   display: block;
+   padding: 15px 0;
+   font-size: 13px;
+   font-family: 'Noto Sans KR', sans-serif;
+   border: 0;
+}
+
+#proD-content .nav-tabs>li a:hover {
+   color: rgba(96, 0, 119, 0.7);
+   border-radius: 0;
+}
+
+#proD-content .nav-tabs>li {
+   width: 25%;
+   text-align: center;
+}
+
+/*상품정보 > 상품정보 더보기 버튼*/
+.more-btn-wrap {
+   width: 100%;
+   display: block;
+   text-align: center;
+   margin: 50px 0;
+}
+
+.proin-more-btn {
+   padding: 10px 30px;
+   background: #5f0080;
+   color: #fff;
+   border: 1px solid #5f0080;
+}
+
+/*구매정보 탭 메뉴 영역*/
+#order-inpomation {
+   margin: 50px 0 100px;
+   font-size: 0.8em;
+   padding: 0 15px;
+}
+
+#order-inpomation h3 {
+   padding-bottom: 15px;
+}
+
+#order-inpomation table, tr, td, th {
+   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#order-inpomation th {
+   background: rgba(0, 0, 0, 0.05);
+   text-indent: 5px;
+}
+
+#order-inpomation td {
+   padding: 5px;
+}
+
+.order-table {
+   margin-bottom: 30px;
+}
+
+.order-table tr:first-child th:first-child {
+   width: 25%;
+}
+
+.order-table tr:first-child td:first-child {
+   width: 25%;
+}
+
+.order-table tr:first-child th:last-child {
+   width: 15%;
+}
+
+.order-table tr:first-child td:last-child {
+   width: 35%;
+}
+
+.change-table th {
+   width: 35%;
+}
+
+.change-table td {
+   width: 65%;
+}
+
+#order-inpomation-txt h4 {
+   padding: 10px 0;
+}
+
+/* ----------상품후기 컨텐츠--------- */
+#proD-review {
+   margin: 50px 0;
+   padding: 0 15px;
+}
+
+.proD-review-num {
+   padding: 10px 0 15px;
+   font-size: 13px;
+}
+
+.review-num {
+   font-weight: bold;
+   color: rgba(95, 0, 119, 0.5);
+}
+
+/*각각 상품후기 리스트들*/
+#proD-review-list li {
+   padding: 15px 0;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 포토리뷰의 이미지 영역 */
+#proD-review-list img {
+   width: 100%;
+   height: auto;
+}
+
+/* 별점/아이디/작성날짜 영역  */
+.top-area1 {
+   padding: 15px 0 10px;
+}
+
+.star-box {
+   padding-right: 10px;
+   vertical-align: middle
+}
+
+.star-box .onstar {
+   background: url(../img/onstar.png) no-repeat;
+   background-size: 13px;
+   width: 13px;
+   height: 13px;
+   display: inline-block;
+}
+
+.star-box .offstar {
+   background: url(../img/offstar.png) no-repeat;
+   background-size: 13px;
+   width: 13px;
+   height: 13px;
+   display: inline-block;
+}
+
+.star-box span:not(:last-child ){
+   margin-right: -3px;
+}
+
+.review-userid {
+   font-size: 12px;
+   color: #888;
+}
+
+.review-date {
+   font-size: 11px;
+   color: #9999;
+}
+
+/* 리뷰 텍스트 영역 */
+.proD-review-txt {
+   font-size: 12px;
+   color: #666;
+}
+
+/* ----------------구매하기 옵션 버튼 fixed 창---------------- */
+/* 구매하기 옵션 버튼 fixed 창 */
+.show-wrap {
+   position: fixed;
+   background: #fff;
+   bottom: 0;
+   width: 100%;
+   padding: 10px;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* 구매하기 옵션 > 구매하기 버튼 */
+.orderbtn {
+   width: 85%;
+   padding: 10px 0;
+   background: #5f0080;
+   color: #fff;
+   font-weight: bold;
+   border: 0;
+}
+
+.orderbtn:hover {
+   color: #fff;
+}
+/* 구매하기 옵션 > 찜버튼 */
+.proD-jjim-btn {
+   width: 15%;
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   background: url(../img/jjim.png) no-repeat;
+   background-size: 40px auto;
+   box-sizing: border-box;
+   opacity: 0.7;
+   text-indent: -100000px;
+   cursor: pointer;
+}
+
+.jjim-off {
+   background: url(../img/jjim.png) no-repeat 0 0;
+   background-size: 40px;
+}
+
+.jjim-on {
+   background-image: url(../img/jjim2.png);
+}
+
+/*구매하기 옵션 >  옵션창 여는 버튼*/
+.top-option {
+   position: absolute;
+   top: -25px;
+   left: 50%;
+   margin-left: -58px;
+   display: block;
+   width: 115px;
+   height: 25px;
+   background: #fff;
+   border-left: 1px solid rgba(0, 0, 0, 0.1);
+   border-right: 1px solid rgba(0, 0, 0, 0.1);
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hide {
+   display: block !important;
+   height: 0;
+   width: 0;
+   font-size: 0;
+   line-height: 0;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+/*구매하기 옵션 >  옵션창 여는 버튼 > 화살표 넣어주기*/
+.top-option span:after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 7px;
+   left: 50%;
+   margin-left: -6px;
+   width: 16px;
+   height: 9px;
+   background: url(../img/arrow-up.png) no-repeat;
+   background-size: 10px auto;
+}
+
+/* 열리는 옵션창 대그룹 */
+.hide-wrap {
+   position: fixed;
+   background: #fff;
+   bottom: 0;
+   width: 100%;
+   padding: 10px;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   z-index: 12;
+}
+
+/* 옵션 창안에 들어가는 속성들 > 옵션 인풋*/
+#proD-option-hidden>p {
+   margin: 15px 0;
+   font-weight: bold;
+   font-size: 0.85em;
+}
+
+#proD-option-hidden select {
+   width: 100%;
+   height: 35px;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   margin-bottom: 7px;
+   background-color: #fff;
+}
+
+#proD-option-hidden form {
+   margin-bottom: 40px;
+}
+
+/* 옵션 창안에 들어가는 속성들 > 총수량/총금액 영역 */
+#option-inner-price p {
+   font-size: 0.8em;
+   color: #444;
+}
+
+.option-num, .option-all-price {
+   color: rgba(95, 0, 119, 0.5);
+   font-weight: bold;
+}
+
+.option-all-price {
+   font-size: 20px;
+   margin-left: 10px;
+   font-family: 'Ubuntu', sans-serif;
+}
+
+#option-inner-price {
+   display: flow-root;
+   padding: 15px 0;
+   border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* 열리는 옵션창 대그룹 > 다시 닫히는 버튼 */
+.bottom-option {
+   position: absolute;
+   top: -25px;
+   left: 50%;
+   margin-left: -58px;
+   display: block;
+   width: 115px;
+   height: 25px;
+   background: #fff;
+   border-left: 1px solid rgba(0, 0, 0, 0.1);
+   border-right: 1px solid rgba(0, 0, 0, 0.1);
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   z-index: 1;
+}
+
+.bottom-option span:after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 7px;
+   left: 50%;
+   margin-left: -6px;
+   width: 16px;
+   height: 9px;
+   background: url(../img/arrow-down.png) no-repeat;
+   background-size: 10px auto;
+}
+
+/* 열리는 옵션창 > 장바구니 구매하기 버튼 */
+#option-order-btn {
+   display: flow-root;
+   width: 100%;
+   margin: 15px 0 20px;
+}
+
+#option-order-btn a {
+   display: block;
+   width: 50%;
+}
+
+.pro-cart {
+   width: 100%;
+   background: #fff;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   padding: 15px 0;
+   color: #222;
+}
+
+.pro-cart:hover {
+   color: #222;
+}
+
+.pro-order {
+   width: 100%;
+   background: #5f0080;
+   border: 1px solid #5f0080;
+   padding: 15px 0;
+   color: #fff;
+}
+
+.pro-order:hover {
+   color: #fff;
+}
+
+#option-check-section {
+   padding: 20px 15px;
+   background: rgba(0, 0, 0, 0.05);
+}
+
+#option-check {
+   padding: 20px 15px;
+   background: rgba(0, 0, 0, 0.05);
+}
+
+.pro-name {
+   font-size: 13px;
+}
+
+.check-num-custom button {
+   width: 30px;
+   height: 30px;
+   background: #fff;
+   line-height: 30px;
+   text-align: center;
+   font-size: 15px;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   display: inline-block;
+   float: left;
+}
+
+.check-num-custom span {
+   width: 30px;
+   height: 30px;
+   display: inline-block;
+   text-align: center;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+   border-top: 1px solid rgba(0, 0, 0, 0.2);
+   float: left;
+   line-height: 28px;
+   background: #fff;
+}
+
+.check-price {
+   font-size: 16px;
+   font-weight: bold;
+   font-family: 'Ubuntu', sans-serif;
+}
+
+.bottom-area {
+   padding-top: 15px;
+   display: flow-root;
+}
+
+/* 옵션 **/
+input#textarea2 {
+   width: 30%;
+   float: right;
+   text-align: right;
+   border: none;
+   font-size: 20px;
+   padding-right: 5px;
+   color: #5f0080;
+}
+
+input#textarea1 {
+width: 30%;
+    float: right;
+    text-align: right;
+    border: none;
+    font-size: 20px;
+    padding-right: 5px;
+    background: rgba(0, 0, 0, -0.95);
+}
+
+#option-check-section .won {
+   font-size: 16px;
+   padding-top: 5px;
+   font-weight: bold;
+   color: #5f0080;
+}
+
+#option-check .won {
+   font-size: 16px;
+   padding-top: 5px;
+   font-weight: bold;
+}
+
+
+
+
+div#option-check-section.div {
+   background: rgba(0, 0, 0, 0.0);
+}
+
+#option-check-section p.total {
+   color: #5f0080;
+   font-weight: bold;
+}

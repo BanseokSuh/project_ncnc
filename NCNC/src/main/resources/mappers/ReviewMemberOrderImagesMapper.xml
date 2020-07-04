@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ReviewMemberOrderImagesMapper">
+	<resultMap type="com.myncnc.ncnc.model.ReviewMemberOrderImages" id="reviewMemberOrderImagesMap">
+		<result property="rev_no" column= "rev_no"/>
+		<result property="rev_star" column= "rev_star"/>
+		<result property="rev_title" column= "rev_title"/>
+		<result property="rev_contents" column= "rev_contents"/>
+		<result property="reg_date" column= "reg_date"/>
+		<result property="edit_date" column= "edit_date"/>
+		<result property="item_no" column="item_no"/>
+		
+		<result property="mem_no" column= "mem_no"/>
+		<result property="mem_id" column= "mem_id"/>
+		<result property="mem_pw" column= "mem_pw"/>
+		<result property="mem_name" column= "mem_name"/>
+		<result property="mem_email" column= "mem_email"/>
+		<result property="mem_tel" column= "mem_tel"/>
+		<result property="mem_birth" column= "mem_birth"/>
+		<result property="mem_gender" column= "mem_gender"/>
+		<result property="mem_addr1" column= "mem_addr1"/>
+		<result property="mem_addr2" column= "mem_addr2"/>
+		<result property="mem_reply" column= "mem_reply"/>
+		<result property="mem_postcode" column= "mem_postcode"/>
+		
+		<result property="ord_no" column="ord_no" />
+		<result property="ord_memo" column="ord_memo" />
+		<result property="ord_qty" column="ord_qty" />
+		<result property="ord_bank" column="ord_bank" />
+		<result property="ord_payer" column="ord_payer" />
+		<result property="ord_status" column="ord_status" />
+		<result property="ord_delivery" column="ord_delivery" />
+		<result property="item_brand" column="item_brand" />
+		<result property="item_name" column="item_name" />
+		<result property="item_cpu" column="item_cpu" />
+		<result property="item_inch" column="item_inch" />
+		<result property="item_ram" column="item_ram" />
+		<result property="item_os" column="item_os" />
+		<result property="item_weight" column="item_weight" />
+		<result property="item_graphic" column="item_graphic" />
+		<result property="item_ssd" column="item_ssd" />
+		<result property="item_hdd" column="item_hdd" />
+		<result property="item_price" column="item_price" />
+		<result property="item_discount" column="item_discount" />
+		
+		<result property="id" column= "id"/>
+    	<result property="origin_name" column= "origin_name"/>
+    	<result property="file_path" column= "file_path"/>
+    	<result property="content_type" column= "content_type"/>
+   		<result property="file_size" column= "file_size"/>
+   		<result property="img_type" column= "img_type"/>
+   		<result property="parent_id" column= "parent_id"/>
+	</resultMap>
+	
+	<!-- 아이템no 뽑아오기 -->
+	<select id="selectItemNo"
+			parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages"
+			resultMap="reviewMemberOrderImagesMap">
+		SELECT item_no FROM orders as o, item as i, member as m
+		WHERE o.mem_no = m.mem_no AND o.item_name = i.item_name AND o.ord_no = #{ord_no};
+	</select>
+	
+	<!-- 상품 상세에서의 리뷰 -->
+	<select id="selectItemReview"
+			parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages"
+			resultMap="reviewMemberOrderImagesMap">
+		SELECT r.rev_star, r.rev_contents, 
+		m.mem_id, i.item_brand, i.item_name
+		FROM review as r, member as m, item as i
+		WHERE r.item_no = i.item_no AND r.mem_no = m.mem_no AND i.item_no=#{item_no}
+	</select>
+	
+		<!-- 상품 상세에서의 리뷰(상품상세에서 리뷰 확인) -->
+	<select id="selectItemDetailReview"
+			parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages"
+			resultMap="reviewMemberOrderImagesMap">
+		SELECT r.rev_star, r.rev_contents, 
+		m.mem_id, i.item_brand, i.item_name,r.reg_date
+		FROM review as r, member as m, item as i
+		WHERE r.item_no = i.item_no AND r.mem_no = m.mem_no AND i.item_no=#{item_no}
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 
+		=> 마이페이지 > 내가 쓴 상품평 목록 조회
+			selectListReivewMember
+	-->
+	<select id="selectListReivewMember"
+		parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages"
+		resultMap="reviewMemberOrderImagesMap">
+		SELECT r.rev_no, r.rev_star, r.rev_title, r.rev_contents, 
+		m.mem_id, o.item_brand, o.item_name, o.item_price, o.item_cpu, o.item_ram, o.item_ssd, g.origin_name, m.mem_no
+		FROM review as r, member as m, orders as o, images as g
+		WHERE o.mem_no = m.mem_no
+		AND g.parent_id = r.item_no AND g.img_type='A' AND r.mem_no = m.mem_no AND m.mem_no = #{mem_no};
+	</select>
+
+
+		<!-- 조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다. count, max, min, sum, avg 함수를 사용한 
+		경우 Mapper에서는 requltMap이 아닌 resultType으로 반환한다.
+			=> 해당 상품에 대한 리뷰의 개수
+		 -->
+	<select id="selectCountReivewItem"
+		parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages" resultType="int">
+		SELECT COUNT(*) FROM review WHERE item_no=#{item_no};
+
+	</select>
+	
+		<!-- 조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다. count, max, min, sum, avg 함수를 사용한 
+		경우 Mapper에서는 requltMap이 아닌 resultType으로 반환한다.
+			=> 사용자가 쓴 리뷰의 개수
+		 -->
+	<select id="selectCountReivewMember"
+		parameterType="com.myncnc.ncnc.model.ReviewMemberOrderImages" resultType="int">
+		SELECT COUNT(*) FROM review WHERE mem_no=#{mem_no};
+
+	</select>
+
+
+</mapper>

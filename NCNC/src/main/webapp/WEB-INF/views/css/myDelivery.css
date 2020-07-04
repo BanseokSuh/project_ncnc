@@ -1,0 +1,131 @@
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+.delivery-list>ul>li{
+    display:flow-root;
+    padding:15px;
+}
+
+#mydelivery{
+    float:left;
+    width:25%;
+    margin-top:15px
+}
+
+.delivery-info{
+    float:left;
+    width:40%;
+    font-size:12px;
+    
+}
+
+.delete-delivery{
+    float:left;
+    width:20%;
+    text-align: right;
+}
+
+.delete-delivery>img{
+    width:15px;
+    padding-top:15px;
+}
+
+.delivery-form{
+    display: flow-root;
+}
+
+.form-info{
+    float:left;
+    width:50%;
+    padding:20px;
+}
+
+.form-info>p{
+    padding-bottom:20px;
+}
+
+.form-detail{
+    float:left;
+    width:50%;
+    padding:20px;
+}
+
+.form-detail>input{
+    width:100%;
+    margin-bottom:20px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.del-post{
+    display: flow-root;
+    margin-bottom:20px;
+}
+
+#del-postcode{
+    float:left;
+    width:48%;
+}
+
+#del-find{
+    float:left;
+    width:48%;
+    background-color: #fff;
+    border-color: rgb(0,0,0,0.3);
+    color: black;
+    margin-left:8px;
+}
+
+#del-find:hover{
+    background-color:#5f0080;
+    color:white;
+    border-color:#5f0080;
+}
+
+/* 두개 버튼 */
+#cancel-link-button {
+    display: flow-root;
+    padding: 50px 15px 0px 15px;
+}
+
+/* 취소 버튼 */
+#cancel-back {
+    float: left;
+    width: 50%;
+    
+    text-align: center;
+}
+
+#cancel-back a {
+    display: block;
+}
+
+/* 취소 신청 버튼 */
+#link-add-submit {
+    float: left;
+    width: 50%;
+    background-color: #5f0080;
+    padding: 15px;
+    text-align: center;
+}
+
+#link-add-submit a {
+    display: block;
+    color: white;
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="memberMap"
+		type="com.myncnc.ncnc.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="mem_no" column="mem_no" />
+		<result property="mem_id" column="mem_id" />
+		<result property="mem_pw" column="mem_pw" />
+		<result property="mem_name" column="mem_name" />
+		<result property="mem_email" column="mem_email" />
+		<result property="mem_tel" column="mem_tel" />
+		<result property="mem_birth" column="mem_birth" />
+		<result property="mem_gender" column="mem_gender" />
+		<result property="mem_addr1" column="mem_addr1" />
+		<result property="mem_addr2" column="mem_addr2" />
+		<result property="mem_reply" column="mem_reply" />
+		<result property="mem_postcode" column="mem_postcode" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.myncnc.ncnc.model.Member"
+		resultMap="memberMap">
+		SELECT mem_no, mem_id, mem_pw, mem_name, mem_email, mem_tel, mem_birth, mem_gender, 
+			mem_addr1, mem_addr2, mem_reply, mem_postcode, 
+			reg_date, edit_date FROM member WHERE mem_id=#{mem_id};
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="com.myncnc.ncnc.model.Member"
+		resultMap="memberMap">
+		SELECT mem_no, mem_id, mem_pw, mem_name, mem_email, mem_tel, mem_birth, mem_gender, 
+			mem_addr1, mem_addr2, mem_reply, mem_postcode, 
+			reg_date, edit_date FROM member
+
+		<where>
+			<if test="mem_name != null and mem_name != ''">
+				mem_name LIKE CONCAT('%', #{mem_name}, '%')
+			</if>
+		</where>
+
+		ORDER BY mem_no DESC
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem"
+		parameterType="com.myncnc.ncnc.model.Member"
+		useGeneratedKeys="true" keyProperty="mem_no">
+		INSERT INTO member (mem_id, mem_pw, mem_name, mem_email, mem_tel, mem_birth, mem_gender, 
+			mem_addr1, mem_addr2, mem_reply, mem_postcode, 
+			reg_date, edit_date) 
+		VALUES (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_email}, #{mem_tel}, #{mem_birth}, #{mem_gender},
+				#{mem_addr1}, #{mem_addr2}, #{mem_reply}, #{mem_postcode}, now(),now());
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem"
+		parameterType="com.myncnc.ncnc.model.Member">
+		DELETE FROM member WHERE mem_no=#{mem_no};
+	</delete>
+
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem"
+		parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE member SET mem_id=#{mem_id}, mem_pw=#{mem_pw}, mem_name=#{mem_name}, mem_email=#{mem_email},
+				mem_tel=#{mem_tel}, mem_birth=#{mem_birth}, mem_gender=#{mem_gender}, mem_addr1=#{mem_addr1}, mem_addr2=#{mem_addr2},
+				mem_reply=#{mem_reply}, mem_postcode=#{mem_postcode}, reg_date=#{reg_date}, edit_date=now()
+		WHERE mem_no=#{mem_no};
+	</update>
+
+	<!-- 조건에 맞는 데이터 수를 집계하여 int 타입으로 반환한다. count, max, min, sum, avg 함수를 사용한 
+		경우 Mapper에서는 resultMap이 아닌 resultType으로 반환한다. -->
+	<select id="selectCountAll"
+		parameterType="com.myncnc.ncnc.model.Member"
+		resultType="int">
+		SELECT COUNT(*) FROM member
+
+		<where>
+			<if test="mem_name != null and mem_name != ''">
+				mem_name LIKE CONCAT('%', #{mem_name}, '%')
+			</if>
+		</where>
+	</select>
+	
+	<!-- 아이디 중복체크 -->
+	<select id="idCheck"
+			parameterType="com.myncnc.ncnc.model.Member"
+			resultType="int">
+		SELECT COUNT(*) FROM member
+		WHERE mem_id = #{mem_id}
+	</select>
+	
+	<!-- 아이디 찾기 ( 이름과 이메일 일치하는지 확인 ) -->
+	<select id="searchId"
+			parameterType="com.myncnc.ncnc.model.Member"
+			resultMap="memberMap">
+		SELECT mem_id, mem_email FROM member
+		WHERE mem_name=#{mem_name} AND mem_email=#{mem_email};
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="searchPw"
+			parameterType="com.myncnc.ncnc.model.Member"
+			resultMap="memberMap">
+		SELECT mem_id, mem_email, mem_pw FROM member
+		WHERE mem_id=#{mem_id} AND mem_name=#{mem_name} AND mem_email=#{mem_email};
+		
+	</select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="resetPw"
+			parameterType="com.myncnc.ncnc.model.Member">
+		UPDATE member SET mem_pw=#{mem_pw}
+		WHERE mem_id=#{mem_id};
+	</update>
+	
+	<!-- 비밀번호 확인 -->
+	<select id="checkPw"
+			parameterType="com.myncnc.ncnc.model.Member"
+			resultMap="memberMap">
+		SELECT mem_pw FROM member WHERE mem_id=#{mem_id};
+	</select>
+</mapper>

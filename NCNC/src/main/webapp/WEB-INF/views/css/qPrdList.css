@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+#qpro-header{ padding: 15px 0; }
+
+
+#q-pr-list .swiper-slide{
+    width: 20% !important;
+    margin:10px 0 10px 0px !important;
+
+    text-align: center;
+}
+
+/*스와이프 배경영역*/
+#q-list-top-tab{ margin-bottom: 30px; background: rgba(0,0,0,0.05);}
+
+
+/*스와이프 메뉴 아이콘 영역*/
+.tab-button-item-link .icon{ background: rgba(0,0,0,0.1);  display: block; border-radius: 500px; margin: 0 auto; width: 55px; height: 55px; } 
+.tab-button-item-link img{ width: 100%; padding: 12px;}
+
+
+
+
+/*활성화 된 메뉴*/
+.active .icon{ background:#5f0080; }
+#q-list-top-tab .nav-tabs>li.active>a, #q-list-top-tab .nav-tabs>li.active>a:focus, #q-list-top-tab .nav-tabs>li.active>a:hover{ border: 0; }
+
+/*#q-list-top-tab ul li{ margin-left:0 !important;}*/
+
+/*밑에 탭메뉴에서 준 속성 없애기*/
+#q-list-top-tab .nav-tabs>li>a{ background: 0; border: 0; width: 100%; padding:0;}
+
+
+.tab-button-item-link{ border: 1px solid; display: block;  }
+.tab-button-item-link span{ margin-top: 7px; display: inline-block; color: #222; font-size: 11px; }
+
+
+/*중고거래 영역 > 스와이프 이미지 > 하단에 페이징 버튼*/
+
+#q-pr-list .swiper-pagination span:not(:last-child){ margin-right: 5px; }
+:root{ --swiper-theme-color:#5f0080 !important; }
+.swiper-pagination{ position:static !important; margin-top: 15px;  }
+
+
+
+.swiper-container-free-mode>.swiper-wrapper{ padding:10px 0; }
+
+
+
+
+/*베스트 섹션 여백 주기*/
+#tab-btn{ margin-bottom: 15px; }
+#best-content-list{ height: 100%; }
+
+#best-title { margin-bottom: 20px; }
+
+/* 탭메뉴*/
+#pro-content-list .nav>li{width:25%; }
+#pro-content-list .nav-tabs{ border: 0; }
+#pro-content-list .nav-tabs>li>a{ border-radius:0; background:rgba(0,0,0,0.03); padding:7px;  color: #555; font-size:12px; border: 0; padding: 10px 0; font-weight: 300;}
+#pro-content-list .nav-tabs>li.active>a{ background:#5f0080; color:#fff; border:1px solid #5f0080; }
+#pro-content-list .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{ background:#fff; color:#5f0080; border:1px solid #5f0080; font-weight: bold; }
+
+#pro-content-list-inner div ul{ display: flow-root; }
+
+
+#pro-content-list {
+    counter-reset : numbering;
+    list-style-type:none;
+}
+ 
+#pro-content-list .pull-left .best-pro-num:before{
+    counter-increment : numbering; 
+    content : counter(numbering);
+}
+
+
+

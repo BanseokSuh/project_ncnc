@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+/* common.css
+ * 헤더(로고 검색창 장바구니)
+ * 햄버거 메뉴바 common.css
+ * 최근 본 상품 common.css
+ * 푸터 common.css
+ * 따라오는 하단 퀵메뉴
+ * 썸네일
+ */
+
+
+
+/** 화살표 위치 & 스타일 지정하기 */
+#page-header {
+    padding: 15px 0;
+    position: relative;
+}
+
+#page-header .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+
+
+/** 입력란 & 로그인버튼 & 체크박스 여백주기 */
+.form-group {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+/** 입력란 스타일 지정하기 */
+.form-control {
+    margin: 10px 0;
+    height: 35px;
+    font-size: 12px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+
+
+/** 로그인 버튼 스타일 지정하기 */
+#go-to-mypage>button {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #5f0080;
+}
+
+#go-to-logout {
+	padding:50px;
+	text-align: center;
+}
+
+#go-to-logout>button{
+	
+    width: 100%;
+    background-color: #5f0080;
+}
+
+/** 체크박스 스타일 지정하기 */
+.checkbox {
+    margin-bottom: 40px;
+    font-size: 12px;
+}
+
+.chk-ui-wrap {
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.chk-ui-wrap .chk-allSelect {
+    background: #fff;
+    color: #111;
+
+    float: left;
+}
+
+.chk-ui-wrap .chk-allSelect>input {
+    margin-right: 10px !important;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+    margin-bottom: 0;
+}
+
+.checkbox input[type=checkbox] {
+    position: relative !important;
+}
+
+
+
+/** 아이디찾기&비밀번호찾기&회원가입 스타일 지정하기 */
+.list-inline {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.list-inline li {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.list-inline a {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+}
+
+
+
+/** 글자 사이 '|' 기호 스타일 지정하기 */
+.list-inline li:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+.list-inline li:first-child:before {
+    display: none;
+}
+
+
+
+/** 하단 광고 스타일 지정하기 */
+.thumb {
+    padding: 15px;
+}
+
+.thumb img {
+    display: block;
+    width: 100%;
+    border: 0;
+}

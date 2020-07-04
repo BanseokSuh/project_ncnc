@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/* common.css
+ * 헤더(로고 검색창 장바구니)
+ * 햄버거 메뉴바 common.css
+ * 최근 본 상품 common.css
+ * 푸터 common.css
+ * 따라오는 하단 퀵메뉴
+ * 썸네일
+ */
+
+
+
+/** 페이지 여백주기 */
+.container {
+    width: 100%;
+    padding: 0;
+}
+
+
+
+/** 페이지 제목 스타일 지정하기 */
+#page-header {
+    padding: 15px 0;
+    position: relative;
+}
+
+
+
+/** 화살표 위치 & 스타일 지정하기 */
+#page-header .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+
+
+/** 본문 영역 */
+.mem-grade {
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#my-grade {
+    color: rgba(95, 0, 115, 0.7);
+    font-weight: bold;
+}
+
+.mem-standard {
+    width: 350px;
+    margin: 15px auto 0;
+    padding: 15px 50px;
+    line-height: 1.5;
+}
+
+.mem-standard h6 {
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+}
+
+
+
+/** vvip, vip, family */
+.mem-bnf>ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.mem-family {
+    margin-bottom: 40px;
+}
+

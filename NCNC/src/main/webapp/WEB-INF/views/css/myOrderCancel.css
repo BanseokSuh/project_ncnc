@@ -1,0 +1,155 @@
+a,a:hover{
+    color:black;
+}
+
+/* 공통 헤더 부분 */
+#private-header {
+    padding: 15px 0;
+}
+
+
+#link-cancel-submit .cancel-btn{ 
+   background:#5f0080; color:#fff;
+   width:100%; padding:15px 0; display:block;
+    font-size:13px; border:1px solid #5f0080; }
+
+
+#private-header .btn-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 취소 신청 날짜 */
+#cancel-product-date {
+    padding: 15px;
+    text-align: center;
+    border-top:1px solid rgba(0,0,0,0.05);
+}
+
+/* 주문 상품 타이틀 */
+#cancel-product-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#cancel-product>ul>li {
+    display: flow-root;
+}
+
+#cancel-product>ul {
+    padding: 10px 0;
+}
+
+/* 상품 썸네일 */
+.list-thumbnail {
+    position: relative;
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* 상품 상세 설명 부분 */
+.list-desc {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+.list-brand{
+    font-size: 11px;
+}
+.list-product-name{
+    font-size: 11px;
+}
+.list-product-desc {
+    padding: 5px 0;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.list-thumbnail>img {
+    width: 100px;
+}
+
+/* 취소 상품 총 환불 금액 타이틀 */
+#cancel-price-title {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 총 상품 금액 */
+#total-product-price {
+    display: flow-root;
+    padding: 15px;
+}
+
+#inner-price-info {
+    float: left;
+    width: 50%;
+}
+
+#inner-price-desc {
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+/* 총 배송비 */
+#total-deliver-price {
+    display: flow-root;
+    padding: 0 15px;
+}
+
+#inner-deliver-info {
+    float: left;
+    width: 50%;
+}
+
+#inner-deliver-desc {
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+/* 두개 버튼 */
+#cancel-link-button {
+    display: flow-root;
+    padding: 50px 15px 0px 15px;
+}
+
+/* 취소 버튼 */
+#cancel-back {
+    float: left;
+    width: 50%;
+    
+    text-align: center;
+}
+
+#cancel-back a {
+    display: block;
+}
+
+/* 취소 신청 버튼 */
+#link-cancel-submit {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+#link-cancel-submit a {
+    display: block;
+    color: white;
+}

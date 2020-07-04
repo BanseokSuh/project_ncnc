@@ -1,0 +1,86 @@
+/********************* 상단영역 *********************/
+/* 내부 패딩 */
+.inner {
+    padding: 0 20px 80px;
+}
+
+/* 뒤로가기 버튼 */
+.top>.btn-back {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    display: inline-block;
+    background: url(../img/arrow-left.png) no-repeat;
+    background-size: 23px auto;
+    width: 23px;
+    height: 23px;
+    border: 0;
+    box-shadow: none;
+    text-indent: -1000px;
+}
+
+/* 상단 약관동의 탭 비활성화 처리 */
+#tab-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* 상단 '약관동의' 위아래 패딩 */
+.top{
+    padding: 15px 0;
+}
+
+/********************* 중간영역 *********************/
+/*14세 미만 체크박스 둘레*/
+.contents .contents_wrap .checkbox_wrap01 {
+    display: block;
+    margin: 30px 0 20px;
+}
+
+/* 체크박스 */
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    background-color: #fff;
+    outline: none;
+}
+
+/* 체크박스 내용 */
+.contents .contents_wrap label {
+    font-size: 13px;
+}
+
+/* 약관동의 둘레 */
+.terms_wrap .terms {
+    margin-bottom: 40px;
+}
+
+/* 각 약관동의 내용 */
+.terms_wrap .terms .term_content {
+    margin: 10px 0;
+    height: 200px;
+    overflow: scroll;
+    border: 1px solid #c9c9c9;
+}
+
+/* 각 약관동의 제목 왼쪽 정렬 */
+.terms_wrap h4 {
+    text-align: left;
+}
+
+/********************* 하단영역 *********************/
+/* 하단 '취소', '다음' 버튼 둘레 */
+.contents .contents_wrap .btn {
+    width: 100%;
+    font-size: 0;
+}
+
+/* 하단 '취소', '다음' 각 버튼*/
+.contents .contents_wrap .btn>a {
+    display: inline-block;
+    width: 50%;
+}
+

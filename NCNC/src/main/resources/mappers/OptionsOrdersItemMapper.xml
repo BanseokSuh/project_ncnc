@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OptionsOrdersItemMapper">
+
+
+	<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+	<resultMap id="optionsOrdersItemMap"
+		type="com.myncnc.ncnc.model.OptionsOrdersItem">
+		<!-- Options 컬럼 -->
+		<result property="opt_no" column="opt_no" />
+		<result property="opt_name" column="opt_name" />
+		<result property="ord_no" column="ord_no" />
+		<result property="item_no" column="item_no" />
+		<result property="opt_price" column="opt_price" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<!-- Order컬럼 -->
+		<result property="ord_memo" column="ord_memo" />
+		<result property="ord_qty" column="ord_qty" />
+		<result property="ord_bank" column="ord_bank" />
+		<result property="ord_payer" column="ord_payer" />
+		<result property="ord_status" column="ord_status" />
+		<result property="ord_delivery" column="ord_delivery" />
+		<result property="mem_no" column="mem_no" />
+		<result property="item_brand" column="item_brand" />
+		<result property="item_name" column="item_name" />
+		<result property="item_cpu" column="item_cpu" />
+		<result property="item_inch" column="item_inch" />
+		<result property="item_ram" column="item_ram" />
+		<result property="item_os" column="item_os" />
+		<result property="item_weight" column="item_weight" />
+		<result property="item_graphic" column="item_graphic" />
+		<result property="item_ssd" column="item_ssd" />
+		<result property="item_hdd" column="item_hdd" />
+		<result property="item_price" column="item_price" />
+		<result property="item_discount" column="item_discount" />
+		<!-- Item 컬럼 -->
+		<result property="item_rel" column="item_rel" />
+		<result property="item_hit" column="item_hit" />
+		<result property="item_discount" column="item_discount" />
+		<result property="item_cnt" column="item_cnt" />
+
+	</resultMap>
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.myncnc.ncnc.model.OptionsOrdersItem"
+		resultMap="optionsOrdersItemMap">
+		SELECT opt_no, opt_name, opt_price,
+		reg_date, edit_date
+		FROM options
+		WHERE opt_no=#{opt_no}
+
+
+	</select>
+
+	<select id="selectList"
+		parameterType="com.myncnc.ncnc.model.OptionsOrdersItem"
+		resultMap="optionsOrdersItemMap">
+		SELECT opt_no, opt_name, opt_price,
+		reg_date, edit_date
+		FROM options
+
+
+
+
+	</select>
+
+
+
+
+
+
+</mapper>

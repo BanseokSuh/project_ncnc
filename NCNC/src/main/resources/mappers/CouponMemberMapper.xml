@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponMemberMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="couponMemberMap"
+		type="com.myncnc.ncnc.model.CouponMember">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cou_no" column="cou_no" />
+		<result property="cou_name" column="cou_name" />
+		<result property="cou_exp" column="cou_exp" />
+		<result property="cou_price" column="cou_price" />
+		<result property="cou_condition" column="cou_condition" />
+		<result property="cou_max_price" column="cou_max_price" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<result property="mem_no" column="mem_no" />
+		<result property="mem_id" column="mem_id" />
+		<result property="mem_pw" column="mem_pw" />
+		<result property="mem_name" column="mem_name" />
+		<result property="mem_email" column="mem_email" />
+		<result property="mem_tel" column="mem_tel" />
+		<result property="mem_birth" column="mem_birth" />
+		<result property="mem_gender" column="mem_gender" />
+		<result property="mem_addr1" column="mem_addr1" />
+		<result property="mem_addr2" column="mem_addr2" />
+		<result property="mem_reply" column="mem_reply" />
+		<result property="mem_postcode" column="mem_postcode" />
+	</resultMap>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="com.myncnc.ncnc.model.CouponMember"
+		resultMap="couponMemberMap">
+		SELECT cou_name, cou_exp, cou_price, cou_condition,
+		cou_max_price
+		FROM coupon as c, member as m
+		WHERE c.mem_no = m.mem_no AND
+		m.mem_no=#{mem_no}
+
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.myncnc.ncnc.model.CouponMember"
+		resultMap="couponMemberMap">
+		SELECT cou_name, cou_exp, cou_price, cou_condition,
+		cou_max_price FROM coupon as c, member as m WHERE c.mem_no
+		= m.mem_no AND m.mem_no=#{mem_no}
+
+		<!-- SELECT cou_name, cou_exp, cou_price, cou_condition,
+		cou_max_price
+		FROM coupon as c, member as m
+		WHERE c.mem_no = m.mem_no AND
+		m.mem_no=#{mem_no} -->
+
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectCount"
+		parameterType="com.myncnc.ncnc.model.CouponMember"
+		resultType = "int">
+		SELECT COUNT(*) FROM coupon as c, member as m WHERE c.mem_no
+		= m.mem_no AND m.mem_no=#{mem_no}
+
+	</select>
+
+
+</mapper>

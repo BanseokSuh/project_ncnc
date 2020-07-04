@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+
+
+/*------------------------------메인 슬라이드-------------------------------*/
+
+#main-slide-section .swiper-slide img{ width: 100%;}
+
+
+#main-slide-section .swiper-pagination{ position: sticky; width: 90%; margin: 0 auto; bottom: 30px;}
+:root{--swiper-theme-color:#9770BE !important}
+
+
+
+/*-------------------------이벤트 레이아웃 배치 영역-------------------*/
+
+#main-event{ width: 100%; margin:30px 0; display: flow-root;}
+    
+#event-inner{ display: flow-root; }
+#event-inner div{ width:32%; margin:0.6%;  }
+#event-inner div img{ width: 100%; }
+#event-inner div a{ display: block; }
+
+#event-inner .main-event-text{ text-align: center; font-size: 12px; color: #333; margin-top: 7px; display: block; padding: 0 5px; }
+
+/*이벤트 각각 영억*/
+
+/*#event-inner img{ border: 1px solid rgba(0,0,0,0.1); padding: 5px; }*/
+/*이벤트 각각영역 > 이벤트 제목*/
+#main-event-text{ display: block; margin-top: 10px; font-size: 1.1em; color: rgba(0,0,0,0.6);}
+
+#event-title { margin-bottom: 15px; }
+
+
+/*------------------------------메인 퀵메뉴------------------------------
+홈 탭메뉴,,, 나중에 합쳐야함 */
+
+
+#quick-menu ul{ display: flow-root; }
+#quick-menu ul li{width: 16.6%; }
+#quick-menu ul li:first-child{ font-weight: bold;}
+
+#quick-menu ul li a{ display: block; color:#222; padding: 7px 0; }
+
+#quick-menu ul li:first-child a{font-weight: bold;
+    color: rgba(95,0,119,0.7);
+    text-decoration: underline;}
+
+
+
+/* 따라오는 퀵메뉴 들 아이콘 속성들 */
+
+#fixed-q-menu {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#fixed-q-menu>ul>li {  width: 20%;  float: left;  line-height: 50px;}
+
+#fixed-q-menu>ul>li a { display: block; height: 50px;}
+
+#fixed-q-menu>ul>li img { width: 25px; opacity: 0.75; }
+#fixed-q-menu>ul>li img:hover{ opacity: 0.5; }
+
+h3{ font-weight: bold; }
+
+/*-------------------------베스트 레이아웃 배치 영역-------------------*/
+
+
+
+
+/*베스트 섹션 여백 주기*/
+#tab-btn{ margin-bottom: 15px; }
+#best-content-list{ height: 100%; }
+#best-title>h2 {
+    margin: 20px auto;
+    text-align: center;
+    font-weight: bold;
+}
+#best-title { margin-bottom: 20px; }
+
+/*베스트 섹션 > 탭메뉴*/
+#main-best-category .nav>li{width:25%;  }
+#main-best-category .nav-tabs{ border: 0; }
+#main-best-category .nav-tabs>li>a{ border-radius:0; background:rgba(0,0,0,0.03); padding:7px; color: #222; font-size: 12px; border: 0; font-weight: 400; width: auto; padding: 10px 0;}
+#main-best-category .nav-tabs>li.active>a{ background:#5f0080; color:#fff; border:1px solid #5f0080; }
+#main-best-category .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{ background:#5f0080; color:#fff; border:1px solid #5f0080; font-weight: bold; }
+
+#best-content-list div ul{ display: flow-root; }
+
+
+/*------------------------------중고거래 영역-------------------------*/
+
+#main-resell{ background: rgba(95,0,119,0.07); padding:30px 0; margin:50px 0 -50px;}
+#main-resell-header p{ font-size:0.8em; margin:5px 0 10px 0; color: dimgray; }
+#main-resell-header h3{ color:#5f0080;  }
+
+
+/*중고거래 영역> 이미지 스와이프 부분 */
+/*#main-resell-list ul li a img{ width:100%; }*/
+
+#main-resell-list .swiper-slide{
+    width: 40% !important;
+    margin:10px 0 10px 30px !important;
+    background: #fff;
+    box-shadow: -2px 3px 8px rgba(0,0,0,0.3);
+    padding: 15px;}
+
+#main-resell-list ul li:not(:first-child){ margin-left:10px !important;}
+
+/*중고거래 영역> 이미지 > 하단 텍스트 */
+.swiper-slide a{ color:#222; font-size:0.8em;  }
+.swiper-slide a:hover{ color:#222; font-size:0.8em;  }
+.pro-text-div{ margin-top: 10px; }
+/*.pro-text-div .pro-price{ margin-top: 15px; }*/
+
+/*중고거래 영역 > 스와이프 이미지 > 하단에 페이징 버튼*/
+
+#main-resell .swiper-pagination span:not(:last-child){ margin-right: 5px; }
+#main-resell :root{ --swiper-theme-color:#5f0080 !important; }
+#main-resell .swiper-pagination{ position:static !important; margin-top: 15px;  }
+
+
+
+/*중고거래 상품 더보기 링크버튼*/
+#main-resell .main-recell-more a{ font-size: 0.8em; color: #222; margin-top: 15px; display: inline-block;}
+#main-resell .main-recell-more a:hover{ color: rgba(96,0,119,0.5);  }
+
+
+#main-resell-list ul li img{ width:100%;;  }
+#main-resell-list .pro-title{ display:block; font-size:12px; margin-top: 15px; } 
+#main-resell-list .pre-price{ display: inline-block; font-size:16px; font-weight: bold; font-family: 'Ubuntu', sans-serif; margin-top: 5px;} 
+#main-resell-list .won{ font-size: 11px; font-weight: bold;}
+
+
+
+
+
+
+/*--------------------------------썸네일 부분 설정------------------------------*/
+
+/* 링크의 영역 확장 (공식)
+ * - 크기와 여백을 주기 위하여 block으로 설정 후, 가로 가득
+ * -------------------------------------- */
+#best-content-list li a {
+    display: block;
+    width: auto;
+}
+
+/*메인베스트 썸네일*/
+.thum-list-comm div ul li{ width: 50%; padding: 15px 0; }
+
+.thum-list-comm div ul li img{ width: 100%; padding: 10px;}
+.thum-list-comm div ul li a{ display: block; color: #222;}
+
+/*메인베스트 영역 > 텍스트 영역 */
+.thum-list-comm .pro-text-div{  margin: 10px 0 0 10px; }
+
+
+/*메인베스트 영역 > 텍스트 속성들 */
+.thum-list-comm .pro-title{ margin-top: 5px;}
+.thum-list-comm .pro-price{ display: block; margin-top: 20px; font-weight: bold; }
+
+
+
+/* 베스트 넘버 */
+.thum-list-comm .best-pro-num{ 
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #555;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    top: 5px;
+    left: 15px;
+    font-size: 13px;
+}
+
+
+/*이미지 섹션 스타일*/
+
+
+
+.thum-list-comm div ul li img{ width:150px; height:150px;  }
+
+
+
+
+
+/*텍스트 섹션 스타일*/
+.thum-list-comm .bottom-area{padding: 5px 15px 20px 15px; display: block;}
+.thum-list-comm .bottom-area .pro-brand{ display: block; font-size: 13px;}
+.thum-list-comm .bottom-area .pro-title{ display: block;font-size: 13px; }
+
+
+/*가격 부분*/
+
+.thum-list-comm .bottom-area .per{ font-size: 20px;
+    font-weight: bold;
+    color: rgba(95,0,119,0.7);
+    display: inline-block;
+    margin-right: 5px; 
+	font-family: 'Ubuntu', sans-serif;
+}
+
+
+.thum-list-comm .bottom-area .pre-price{display: block;
+    min-height: 16px;
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #888;
+    height: 21px;
+    margin-bottom: -6px;
+font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+}
+
+
+.thum-list-comm .bottom-area .price{font-size: 17px; 
+    font-family: 'Ubuntu', sans-serif; 
+    display: inline-block;}
+
+.thum-list-comm .bottom-area .won{font-size: 11px;
+    font-weight: bold;
+    vertical-align: middle;}
+
+
+
+
+/*--------------------------------썸네일 부분 설정 끝------------------------------*/
+

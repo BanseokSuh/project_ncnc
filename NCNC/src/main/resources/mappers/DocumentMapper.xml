@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DocumentMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="documentMap"
+		type="com.myncnc.ncnc.model.Document">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="doc_no" column="doc_no" />
+		<result property="doc_title" column="doc_title" />
+		<result property="doc_contents" column="doc_contents" />
+		<result property="doc_type" column="doc_type" />
+		<result property="doc_hit" column="doc_hit" />
+		<result property="doc_day" column="doc_day" />
+		<result property="doc_end" column="doc_end" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+	
+	<!-- qmenu > qNews 전체 목록 조회-->
+	<select id="selectNewsList"
+		parameterType="com.myncnc.ncnc.model.Document"
+		resultMap="documentMap">
+		SELECT doc_no, doc_title, doc_contents, doc_type, doc_hit, 
+			doc_day, doc_end, reg_date, edit_date 
+		FROM document
+		WHERE doc_type='A'
+		ORDER BY doc_no DESC;
+	</select>
+	
+	<!-- newsDetail/eventDetail 상세 페이지 조회-->
+	<select id="selectDocItem"
+		parameterType="com.myncnc.ncnc.model.Document"
+		resultMap="documentMap">
+		SELECT doc_no, doc_title, doc_contents, doc_type, doc_hit, 
+			doc_day, doc_end, reg_date, edit_date 
+		FROM document 
+		WHERE doc_no=#{doc_no};
+	</select>
+
+	<!-- Document 조회수 증가-->
+	<update id="updateDocHit"
+		parameterType="com.myncnc.ncnc.model.Document">
+		UPDATE document 
+			SET doc_hit = doc_hit + 1
+        WHERE doc_no=#{doc_no};
+    </update>
+
+	<!-- qmenu > qEvent(진행중) 전체 목록 조회-->
+	<select id="selectEventList"
+		parameterType="com.myncnc.ncnc.model.Document"
+		resultMap="documentMap">
+		<![CDATA[
+		SELECT doc_no, doc_title, doc_contents, doc_type, doc_hit, 
+			doc_day, doc_end, reg_date, edit_date 
+		FROM document
+		WHERE doc_type='B'AND doc_end > 0
+		ORDER BY doc_no DESC;
+		]]>	
+	</select>
+	
+	<!-- qmenu > qEvent(종료) 전체 목록 조회-->
+	<select id="selectEventendList"
+		parameterType="com.myncnc.ncnc.model.Document"
+		resultMap="documentMap">
+		<![CDATA[
+		SELECT doc_no, doc_title, doc_contents, doc_type, doc_hit, 
+			doc_day, doc_end, reg_date, edit_date 
+		FROM document
+		WHERE doc_type='B'AND doc_end <= 0
+		ORDER BY doc_no DESC;
+		]]>
+	</select>	
+
+</mapper>

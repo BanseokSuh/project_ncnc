@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DeliveryMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="deliveryMap"
+        type="com.myncnc.ncnc.model.Delivery">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="del_no" column="del_no" />
+        <result property="del_nick" column="del_nick" />
+        <result property="del_postcode" column="del_postcode" />
+        <result property="item_brand" column="item_brand" />
+        <result property="del_addr1" column="del_addr1" />
+        <result property="del_addr2" column="del_addr2" />
+        <result property="del_receiver" column="del_receiver" />
+        <result property="reg_date" column="reg_date" />
+        <result property="edit_date" column="edit_date" />
+        
+        <result property="mem_no" column="mem_no" />  
+    </resultMap>
+    
+
+    <!-- 배송지관리 목록 리스트에 담기 -->
+    <insert id="insertItem"
+        parameterType="com.myncnc.ncnc.model.Delivery"
+        useGeneratedKeys="true" keyProperty="del_no">
+        INSERT INTO delivery (
+            del_nick, del_postcode, del_addr1, del_addr2, del_receiver, del_tel, mem_no, reg_date, edit_date) VALUES (
+            #{del_nick}, #{del_postcode}, #{del_addr1}, #{del_addr2}, #{del_receiver}, #{del_tel}, #{mem_no}, #{reg_date}, #{edit_date})
+    </insert>
+        
+    
+    <!-- 회원탈퇴를 위한 mem_no=null 처리 -->
+    <update id="updateItem"
+        parameterType="com.myncnc.ncnc.model.Delivery">
+        UPDATE delivery SET mem_no = null WHERE mem_no=#{mem_no}
+    </update>
+    
+    
+    <!-- 배송지관리 목록 리스트에서 삭제 -->
+    <delete id="deleteItem"
+        parameterType="com.myncnc.ncnc.model.Delivery">
+        DELETE FROM delivery WHERE mem_no=#{mem_no} AND del_no=#{del_no}
+    </delete>
+
+</mapper>
